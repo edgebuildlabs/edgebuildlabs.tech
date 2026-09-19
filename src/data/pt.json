@@ -26,7 +26,7 @@
     "cartoes": [
       {
         "titulo": "Vídeo curto para redes",
-        "texto": "Narração, trilha, efeitos e texto na tela. De 15 a 60 segundos, no formato da rede.",
+        "texto": "Narração, trilha, efeitos e texto na tela. Até 60 segundos, no formato da rede.",
         "itens": [
           "Roteiro a partir do seu briefing",
           "Uma rodada de revisão no piloto, duas nas seguintes",
@@ -35,7 +35,7 @@
       },
       {
         "titulo": "Automação e agentes com evidência",
-        "texto": "Rotinas, integrações e agentes que trabalham sozinhos — e deixam recibo do que fizeram.",
+        "texto": "Em construção: rotinas, integrações e agentes que trabalham sozinhos — e deixam recibo do que fizeram. O contrato já é público; preço só na proposta, quando houver.",
         "itens": [
           "Cada execução registra o que rodou, quando, e o que voltou",
           "Roda no seu servidor ou no nosso",
@@ -59,7 +59,7 @@
       {
         "id": "aU_iT-dYK-4",
         "titulo": "Anúncio do Living World, 32 s",
-        "texto": "Cenas, personagens e texto na tela gerados com agentes; render local em Remotion."
+        "texto": "Capturas reais do site e a arte do próprio site; tipografia em Remotion; narração sintética. Sem imagem gerada, sem pessoa real."
       }
     ],
     "itens": [
@@ -74,6 +74,12 @@
         "texto": "Três arquivos em domínio público (CC0), sem dependência e sem instalação. Copie um para o seu repositório: são as instruções para o agente informar o que rodou, quando, e o que voltou.",
         "link": "github.com/edgebuildlabs/evidence-contracts",
         "href": "https://github.com/edgebuildlabs/evidence-contracts"
+      },
+      {
+        "titulo": "work-order-contract",
+        "texto": "Como se pede o trabalho para que a prova seja possível: objetivo, estado, escopo, aceite, limites, evidência e parada. Um modelo em domínio público (CC0).",
+        "link": "github.com/edgebuildlabs/work-order-contract",
+        "href": "https://github.com/edgebuildlabs/work-order-contract"
       }
     ]
   },
@@ -101,6 +107,7 @@
     "itens": [
       { "rotulo": "E-mail", "valor": "contato@edgebuildlabs.tech", "href": "mailto:contato@edgebuildlabs.tech" },
       { "rotulo": "X", "valor": "@EdgeBuildLabs", "href": "https://x.com/EdgeBuildLabs" },
+      { "rotulo": "YouTube", "valor": "youtube.com/@edgebuildlabs", "href": "https://www.youtube.com/@edgebuildlabs" },
       { "rotulo": "Cliente técnico", "valor": "abrir uma issue no repositório", "href": "https://github.com/edgebuildlabs/evidence-contracts/issues" }
     ]
   },

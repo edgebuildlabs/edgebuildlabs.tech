@@ -13,10 +13,11 @@ from __future__ import annotations
 import hashlib
 import re
 import sys
+import os
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent
-KIT = Path("C:/OPERACAO/entregas/marca-identidade-kit")
+KIT = Path(os.environ.get("KIT_DIR", str(Path(__file__).resolve().parent / "kit")))  # kit de identidade, fora do repositório
 DIST = RAIZ / "dist"
 
 ok = True

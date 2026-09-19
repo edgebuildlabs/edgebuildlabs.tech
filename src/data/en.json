@@ -26,7 +26,7 @@
     "cartoes": [
       {
         "titulo": "Short video for social media",
-        "texto": "Voice-over, music, effects and on-screen text. 15 to 60 seconds, in the network's format.",
+        "texto": "Voice-over, music, effects and on-screen text. Up to 60 seconds, in the network's format.",
         "itens": [
           "Script from your brief",
           "One revision round on the pilot, two after that",
@@ -35,7 +35,7 @@
       },
       {
         "titulo": "Automation and agents with evidence",
-        "texto": "Routines, integrations and agents that work on their own — and leave a receipt of what they did.",
+        "texto": "In progress: routines, integrations and agents that work on their own — and leave a receipt of what they did. The contract is already public; price in the proposal, when there is one.",
         "itens": [
           "Every run records what ran, when, and what came back",
           "Runs on your server or on ours",
@@ -59,7 +59,7 @@
       {
         "id": "aU_iT-dYK-4",
         "titulo": "Living World ad, 32 s",
-        "texto": "Scenes, characters and on-screen text generated with agents; rendered locally in Remotion. In Portuguese."
+        "texto": "Real captures of the site and the site's own artwork; Remotion type; synthetic voice-over. No generated imagery, no real people. In Portuguese."
       }
     ],
     "itens": [
@@ -74,6 +74,12 @@
         "texto": "Three public-domain files (CC0), no dependencies, no install. Copy one into your repository: it is the instruction set that makes your agent report what it ran, when, and what came back.",
         "link": "github.com/edgebuildlabs/evidence-contracts",
         "href": "https://github.com/edgebuildlabs/evidence-contracts"
+      },
+      {
+        "titulo": "work-order-contract",
+        "texto": "How to ask for the work so that proof is possible: goal, state, scope, acceptance, limits, evidence and stop. A public-domain template (CC0).",
+        "link": "github.com/edgebuildlabs/work-order-contract",
+        "href": "https://github.com/edgebuildlabs/work-order-contract"
       }
     ]
   },
@@ -101,6 +107,7 @@
     "itens": [
       { "rotulo": "E-mail", "valor": "contato@edgebuildlabs.tech", "href": "mailto:contato@edgebuildlabs.tech" },
       { "rotulo": "X", "valor": "@EdgeBuildLabs", "href": "https://x.com/EdgeBuildLabs" },
+      { "rotulo": "YouTube", "valor": "youtube.com/@edgebuildlabs", "href": "https://www.youtube.com/@edgebuildlabs" },
       { "rotulo": "Technical client", "valor": "open an issue on the repository", "href": "https://github.com/edgebuildlabs/evidence-contracts/issues" }
     ]
   },

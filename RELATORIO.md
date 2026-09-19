@@ -2,7 +2,7 @@
 
 # Site de marca `edgebuildlabs.tech` — relatório de construção
 
-Pasta: `C:/OPERACAO/entregas/site-marca/`. Localhost só; nada publicado.
+Pasta: a cópia de trabalho local do repositório. Localhost só; nada publicado.
 
 ## O que foi construído
 
@@ -39,7 +39,7 @@ contra os arquivos do kit). `README.md` explica onde mexer. `LICENSE-blackspike-
 ## Como rodar
 
 ```
-cd C:/OPERACAO/entregas/site-marca
+cd <pasta do clone>
 npm install
 npm run build
 python -m http.server 8765 --directory dist
