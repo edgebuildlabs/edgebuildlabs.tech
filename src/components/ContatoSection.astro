@@ -1,0 +1,85 @@
+---
+const { t } = Astro.props
+const c = t.contato
+---
+
+<!-- Contato: e-mail público [OWNER] 18/09/2026, X, issue. Sem formulário. -->
+<section class="secao" id="contato">
+  <div class="wrap">
+    <p class="t-kicker">{c.kicker}</p>
+    <h2 class="t-h2 mt-3">{c.titulo}</h2>
+
+    <dl class="contatos mt-10 md:mt-14">
+      {
+        c.itens.map((item) => (
+          <div class="contato">
+            <dt class="t-kicker">{item.rotulo}</dt>
+            <dd>
+              <a class="contato-link" href={item.href} rel={item.href.startsWith('http') ? 'noopener' : undefined}>
+                {item.valor}
+              </a>
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<style>
+  .contatos {
+    display: grid;
+    gap: 0;
+    margin: 0;
+  }
+
+  .contato {
+    display: grid;
+    gap: 0.4rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--ebl-regua);
+  }
+
+  .contato:last-child {
+    border-bottom: 1px solid var(--ebl-regua);
+  }
+
+  .contato dd {
+    margin: 0;
+  }
+
+  .contato-link {
+    font-size: clamp(1.15rem, 1rem + 0.8vw, 1.6rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    background-image: linear-gradient(var(--ebl-acento), var(--ebl-acento));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    padding-bottom: 2px;
+    transition: background-size 400ms var(--ebl-suave), color 200ms var(--ebl-suave);
+    overflow-wrap: anywhere;
+  }
+
+  .contato-link:hover,
+  .contato-link:focus-visible {
+    background-size: 100% 2px;
+  }
+
+  @media (min-width: 48rem) {
+    .contatos {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    .contato {
+      padding: 1.5rem 0 0;
+      border-top: 1px solid var(--ebl-regua);
+    }
+
+    .contato:last-child {
+      border-bottom: 0;
+    }
+  }
+</style>

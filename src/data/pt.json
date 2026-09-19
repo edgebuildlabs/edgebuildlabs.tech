@@ -1,0 +1,142 @@
+{
+  "lang": "pt-BR",
+  "outroIdioma": { "rotulo": "EN", "href": "/en/", "hrefCreditos": "/en/creditos/", "aria": "Read in English" },
+  "meta": {
+    "titulo": "Edge Build Labs — construído por agentes de IA, provado antes de entregue",
+    "descricao": "Vídeo curto para redes e automação com agentes de IA, sob um contrato que obriga o agente a provar o trabalho. Uma pessoa, no Brasil, em tempo integral."
+  },
+  "nav": [
+    { "rotulo": "Caminhos", "href": "#caminhos" },
+    { "rotulo": "Prova", "href": "#prova" },
+    { "rotulo": "Método", "href": "#metodo" },
+    { "rotulo": "Contato", "href": "#contato" }
+  ],
+  "tema": { "aria": "Alternar tema claro e escuro" },
+  "heroi": {
+    "linha1": "Construído por agentes de IA.",
+    "linha2": "Provado antes de entregue.",
+    "sub": "Uma pessoa, no Brasil, em tempo integral, com uma frota de agentes num servidor próprio.",
+    "cta": "Ver o que já fizemos",
+    "ctaHref": "#prova"
+  },
+  "caminhos": {
+    "kicker": "Dois caminhos",
+    "titulo": "O que dá para pedir.",
+    "contrato": "Escopo, prazo e preço fechados por escrito.",
+    "cartoes": [
+      {
+        "titulo": "Vídeo curto para redes",
+        "texto": "Narração, trilha, efeitos e texto na tela. De 15 a 60 segundos, no formato da rede.",
+        "itens": [
+          "Roteiro a partir do seu briefing",
+          "Uma rodada de revisão no piloto, duas nas seguintes",
+          "Primeira versão em 3 dias úteis a partir do briefing"
+        ]
+      },
+      {
+        "titulo": "Automação e agentes com evidência",
+        "texto": "Rotinas, integrações e agentes que trabalham sozinhos — e deixam recibo do que fizeram.",
+        "itens": [
+          "Cada execução registra o que rodou, quando, e o que voltou",
+          "Roda no seu servidor ou no nosso",
+          "Entregue com o contrato de evidência aplicado"
+        ]
+      }
+    ]
+  },
+  "prova": {
+    "kicker": "Prova de trabalho",
+    "titulo": "O que já fizemos.",
+    "lead": "Coisas que um estranho pode abrir e conferir.",
+    "videoAviso": "O vídeo carrega do YouTube só depois do clique.",
+    "reproduzir": "Reproduzir",
+    "videos": [
+      {
+        "id": "z09-YYVPqCE",
+        "titulo": "Explicativo, 20 s",
+        "texto": "Roteiro, narração e montagem feitos com agentes; render local em Remotion."
+      },
+      {
+        "id": "aU_iT-dYK-4",
+        "titulo": "Anúncio do Living World, 32 s",
+        "texto": "Cenas, personagens e texto na tela gerados com agentes; render local em Remotion."
+      }
+    ],
+    "itens": [
+      {
+        "titulo": "Living World",
+        "texto": "Servidor público de Ultima Online (era T2A, sobre ModernUO), no ar desde 05/09/2026 num único VPS. Container sem root, imagem fixada por digest, backup diário com restauração testada.",
+        "link": "livingworld.edgebuildlabs.tech",
+        "href": "https://livingworld.edgebuildlabs.tech/"
+      },
+      {
+        "titulo": "evidence-contracts",
+        "texto": "Três arquivos em domínio público (CC0), sem dependência e sem instalação. Copie um para o seu repositório: são as instruções para o agente informar o que rodou, quando, e o que voltou.",
+        "link": "github.com/edgebuildlabs/evidence-contracts",
+        "href": "https://github.com/edgebuildlabs/evidence-contracts"
+      }
+    ]
+  },
+  "escada": {
+    "kicker": "Como trabalhamos",
+    "titulo": "A escada.",
+    "lead": "Quatro palavras que um agente confunde. Nós não.",
+    "degraus": [
+      { "rotulo": "STARTED", "texto": "O processo começou. Só isso." },
+      { "rotulo": "COMPLETED", "texto": "O agente diz que terminou. É uma frase, não um fato." },
+      { "rotulo": "VALIDATED", "texto": "Alguém leu o resultado na máquina: o arquivo, o log, o teste." },
+      { "rotulo": "PASS", "texto": "O que foi pedido corresponde ao que foi entregue, com fonte e data." }
+    ],
+    "regra": "Toda afirmação de estado carrega fonte e data, ou as palavras",
+    "regraMarca": "NÃO VERIFICADO."
+  },
+  "faixa": {
+    "texto": "Roda agentes em infraestrutura? O método inteiro, em inglês, está no site da tese.",
+    "link": "edgebuildlabs.github.io",
+    "href": "https://edgebuildlabs.github.io/"
+  },
+  "contato": {
+    "kicker": "Contato",
+    "titulo": "Conte por e-mail o que precisa e para quando. Por escrito, sem ligação.",
+    "itens": [
+      { "rotulo": "E-mail", "valor": "contato@edgebuildlabs.tech", "href": "mailto:contato@edgebuildlabs.tech" },
+      { "rotulo": "X", "valor": "@EdgeBuildLabs", "href": "https://x.com/EdgeBuildLabs" },
+      { "rotulo": "Cliente técnico", "valor": "abrir uma issue no repositório", "href": "https://github.com/edgebuildlabs/evidence-contracts/issues" }
+    ]
+  },
+  "rodape": {
+    "linhas": [
+      "Servido em servidor próprio. Sem rastreador e sem cookie.",
+      "Tema a partir do blackspike astro landing page (CC BY 4.0). Fonte Source Serif 4 (OFL)."
+    ],
+    "links": [
+      { "rotulo": "Living World", "href": "https://livingworld.edgebuildlabs.tech/" },
+      { "rotulo": "Site da tese (EN)", "href": "https://edgebuildlabs.github.io/" },
+      { "rotulo": "Créditos", "href": "/creditos/" }
+    ],
+    "topo": "Voltar ao topo"
+  },
+  "creditos": {
+    "titulo": "Créditos e licenças",
+    "meta": "Créditos e licenças do site edgebuildlabs.tech: tema, fonte, ferramentas.",
+    "voltar": "Voltar ao início",
+    "blocos": [
+      {
+        "titulo": "Tema",
+        "html": "Este site parte do <a href=\"https://github.com/blackspike/blackspike-astro-landing-page\">blackspike astro landing page</a>, de <a href=\"https://www.blackspike.com\">blackspike design</a>, sob <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0</a>. Cortamos as seções que não usamos e trocamos fonte, cores e componentes; a estrutura Astro + Tailwind e as animações de rolagem em CSS vêm de lá. O texto da licença acompanha o código-fonte."
+      },
+      {
+        "titulo": "Fonte",
+        "html": "<strong>Source Serif 4</strong>, versão 4.004, © 2014 The Source Serif 4 Project Authors (Adobe), sob a <a href=\"/fonte/OFL.txt\">SIL Open Font License 1.1</a>. Servida deste site em WOFF2 sem alteração dos dados da fonte, só compressão (item 2.2.1 da FAQ do OFL). O <a href=\"/fonte/SourceSerif4-variavel.ttf\">TTF original</a> está ao lado da licença; sha256 <span class=\"t-mono\">97b2d4da6e3cb494…</span>, copiado de <a href=\"https://github.com/google/fonts/tree/main/ofl/sourceserif4\">google/fonts</a> em 18/09/2026."
+      },
+      {
+        "titulo": "Ferramentas",
+        "html": "<a href=\"https://astro.build/\">Astro</a> e <a href=\"https://tailwindcss.com/\">Tailwind CSS</a>, ambos sob licença MIT, usados só na hora de gerar o HTML. O site publicado é estático: nenhum deles roda no seu navegador."
+      },
+      {
+        "titulo": "O resto",
+        "html": "Símbolo, wordmark, textos e vídeos são da Edge Build Labs. As imagens de capa dos vídeos são quadros dos próprios vídeos. O player só carrega do YouTube (<span class=\"t-mono\">youtube-nocookie.com</span>) depois do clique; até lá, nada sai deste servidor."
+      }
+    ]
+  }
+}

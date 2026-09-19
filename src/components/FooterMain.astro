@@ -1,0 +1,98 @@
+---
+import Simbolo from './Simbolo.astro'
+import BotaoTema from './BotaoTema.astro'
+
+const { t } = Astro.props
+const r = t.rodape
+---
+
+<footer class="rodape">
+  <div class="wrap rodape-grid">
+    <a href="#topo" class="rodape-topo" aria-label={r.topo}>
+      <Simbolo size="28" title={r.topo} />
+    </a>
+
+    <!-- NÃO VERIFICADO: onde este site vai ser servido (a primeira linha presume o mesmo VPS do Living World, como a tese). -->
+    <div class="rodape-linhas t-small">
+      {r.linhas.map((linha) => <p>{linha}</p>)}
+    </div>
+
+    <div class="rodape-acoes">
+      <nav class="rodape-links t-small" aria-label={t.lang === 'en' ? 'Footer' : 'Rodapé'}>
+        {r.links.map((l) => <a href={l.href} rel={l.href.startsWith('http') ? 'noopener' : undefined}>{l.rotulo}</a>)}
+        <a href={t.outroIdioma.href} lang={t.lang === 'en' ? 'pt-BR' : 'en'}>{t.lang === 'en' ? 'Português' : 'English'}</a>
+      </nav>
+      <BotaoTema aria={t.tema.aria} />
+    </div>
+  </div>
+</footer>
+
+<style>
+  .rodape {
+    margin-top: auto;
+    border-top: 1px solid var(--ebl-regua);
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+    color: var(--ebl-tinta-suave);
+  }
+
+  .rodape-grid {
+    display: grid;
+    gap: 1.75rem;
+    align-items: start;
+  }
+
+  .rodape-topo {
+    line-height: 0;
+    display: inline-block;
+  }
+
+  .rodape-linhas {
+    display: grid;
+    gap: 0.6rem;
+    max-width: 62ch;
+  }
+
+  .rodape-linhas p {
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .rodape-acoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .rodape-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.4rem;
+  }
+
+  .rodape-links a {
+    text-decoration: none;
+    color: var(--ebl-tinta-suave);
+  }
+
+  .rodape-links a:hover {
+    color: var(--ebl-tinta);
+  }
+
+  @media (min-width: 64rem) {
+    .rodape-grid {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 3rem;
+    }
+
+    .rodape-acoes {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .rodape-links {
+      justify-content: flex-end;
+    }
+  }
+</style>

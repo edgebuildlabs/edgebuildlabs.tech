@@ -1,0 +1,89 @@
+---
+import '../assets/css/global.css'
+
+import HeaderMain from '../components/HeaderMain.astro'
+import FooterMain from '../components/FooterMain.astro'
+
+const { t, title, description, path, altPath } = Astro.props
+const site = 'https://edgebuildlabs.tech'
+const isEn = t.lang === 'en'
+const ptHref = site + (isEn ? altPath : path)
+const enHref = site + (isEn ? path : altPath)
+---
+
+<html lang={t.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#14130f" />
+
+    <link rel="canonical" href={site + path} />
+    <link rel="alternate" hreflang="pt-BR" href={ptHref} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="x-default" href={ptHref} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-64.png" type="image/png" sizes="64x64" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={site + path} />
+    <meta property="og:image" content={site + '/og-2048x1152.png'} />
+    <meta property="og:image:width" content="2048" />
+    <meta property="og:image:height" content="1152" />
+    <meta property="og:locale" content={isEn ? 'en_US' : 'pt_BR'} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preload" href="/fonte/SourceSerif4-variavel.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Tema antes da primeira pintura, para não piscar. Escuro é o padrão; só muda se o visitante escolheu. -->
+    <script is:inline>
+      ;(function () {
+        try {
+          var t = localStorage.getItem('ebl-tema')
+          if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+
+  <body id="topo" class="min-h-svh flex flex-col">
+    <a class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-3 focus:bg-painel focus:rounded" href="#conteudo">
+      {isEn ? 'Skip to content' : 'Pular para o conteúdo'}
+    </a>
+
+    <HeaderMain t={t} altPath={altPath} />
+
+    <main id="conteudo" class="flex-1">
+      <slot />
+    </main>
+
+    <FooterMain t={t} />
+
+    <script>
+      // Alternância de tema. Único estado guardado no navegador: a escolha do visitante.
+      const raiz = document.documentElement
+      const botoes = document.querySelectorAll<HTMLButtonElement>('[data-tema-btn]')
+      const atualiza = () => {
+        const claro = raiz.dataset.theme === 'light'
+        botoes.forEach((b) => b.setAttribute('aria-pressed', String(claro)))
+      }
+      botoes.forEach((b) =>
+        b.addEventListener('click', () => {
+          const novo = raiz.dataset.theme === 'light' ? 'dark' : 'light'
+          raiz.dataset.theme = novo
+          try {
+            localStorage.setItem('ebl-tema', novo)
+          } catch (e) {}
+          atualiza()
+        }),
+      )
+      atualiza()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const { t, path, altPath } = Astro.props
+const c = t.creditos
+const home = t.lang === 'en' ? '/en/' : '/'
+---
+
+<Layout t={t} title={`${c.titulo} — Edge Build Labs`} description={c.meta} path={path} altPath={altPath}>
+  <section class="secao creditos">
+    <div class="wrap">
+      <h1 class="t-h2">{c.titulo}</h1>
+
+      <div class="creditos-blocos mt-10 md:mt-14">
+        {
+          c.blocos.map((b) => (
+            <section class="creditos-bloco">
+              <h2 class="t-h3">{b.titulo}</h2>
+              <p class="t-corpo" set:html={b.html} />
+            </section>
+          ))
+        }
+      </div>
+
+      <a class="link-seta mt-12 block" href={home}>
+        <span class="seta" aria-hidden="true">←</span>
+        {c.voltar}
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .creditos-blocos {
+    display: grid;
+    gap: 0;
+    max-width: 48rem;
+  }
+
+  .creditos-bloco {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--ebl-regua);
+  }
+
+  .creditos-bloco :global(a) {
+    color: var(--ebl-tinta);
+  }
+
+  .link-seta:hover .seta {
+    transform: translateX(-0.3em);
+  }
+</style>

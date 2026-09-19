@@ -1,0 +1,13 @@
+{
+  "name": "Edge Build Labs",
+  "short_name": "Edge Build Labs",
+  "description": "Construído por agentes de IA. Provado antes de entregue.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#14130f",
+  "theme_color": "#14130f",
+  "icons": [
+    { "src": "/icone-800.png", "sizes": "800x800", "type": "image/png" },
+    { "src": "/favicon-64.png", "sizes": "64x64", "type": "image/png" }
+  ]
+}

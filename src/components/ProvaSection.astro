@@ -1,0 +1,43 @@
+---
+import VideoLite from './VideoLite.astro'
+import posterExplicativo from '../assets/posters/explicativo-20s.jpg'
+import posterAnuncio from '../assets/posters/anuncio-32s.jpg'
+
+const { t } = Astro.props
+const p = t.prova
+const posters = [posterExplicativo, posterAnuncio]
+---
+
+<section class="secao" id="prova">
+  <div class="wrap">
+    <p class="t-kicker">{p.kicker}</p>
+    <h2 class="t-h2 mt-3">{p.titulo}</h2>
+    <p class="t-lead mt-4 max-w-[40ch]">{p.lead}</p>
+
+    <!-- NÃO VERIFICADO: data de publicação dos dois vídeos no YouTube e detalhe de narração/trilha (o Owner confirma). -->
+    <div class="mt-10 md:mt-14 grid gap-8 md:grid-cols-2 md:gap-6">
+      {
+        p.videos.map((v, i) => (
+          <VideoLite id={v.id} titulo={v.titulo} texto={v.texto} poster={posters[i]} reproduzir={p.reproduzir} aviso={p.videoAviso} />
+        ))
+      }
+    </div>
+
+    <p class="t-small mt-4 text-tinta-fraca">{p.videoAviso}</p>
+
+    <div class="mt-10 md:mt-12 grid gap-5 md:grid-cols-2 md:gap-6 items-stretch">
+      {
+        p.itens.map((item) => (
+          <article class="cartao">
+            <h3 class="t-h3">{item.titulo}</h3>
+            <p class="t-corpo">{item.texto}</p>
+            <a class="link-seta mt-auto pt-2" href={item.href} rel="noopener">
+              <span class="t-mono">{item.link}</span>
+              <span class="seta" aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

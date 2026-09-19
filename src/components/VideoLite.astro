@@ -1,0 +1,107 @@
+---
+import { Image } from 'astro:assets'
+
+// Player "lite": até o clique só existe a capa (quadro do próprio vídeo, servido daqui)
+// e um botão. No clique, o script troca o quadro por um iframe do youtube-nocookie.com.
+const { id, titulo, texto, poster, reproduzir, aviso } = Astro.props
+---
+
+<figure class="video" data-id={id} data-titulo={titulo}>
+  <div class="video-quadro">
+    <Image src={poster} alt="" width={960} height={540} format="avif" quality={70} loading="lazy" class="video-capa" />
+    <button type="button" class="video-play" aria-label={`${reproduzir}: ${titulo}. ${aviso}`}>
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M7 4.5v15l12-7.5z" />
+      </svg>
+    </button>
+  </div>
+  <figcaption>
+    <strong class="video-titulo">{titulo}</strong>
+    <span class="t-corpo video-texto block mt-1">{texto}</span>
+  </figcaption>
+</figure>
+
+<style>
+  .video {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .video-quadro {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--ebl-painel);
+    border: 1px solid var(--ebl-regua);
+    border-radius: var(--ebl-raio);
+    overflow: hidden;
+  }
+
+  .video-quadro :global(img),
+  .video-quadro :global(iframe) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+    display: block;
+  }
+
+  /* No canto, não no centro: a capa é um quadro do vídeo e tem texto no meio. */
+  .video-play {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    width: 3.75rem;
+    height: 3.75rem;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 999px;
+    background: var(--ebl-acento);
+    color: var(--ebl-sobre-acento);
+    cursor: pointer;
+    padding-left: 0.2rem;
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--ebl-acento) 45%, transparent);
+    transition: transform 350ms var(--ebl-suave), box-shadow 350ms var(--ebl-suave), background-color 200ms var(--ebl-suave);
+  }
+
+  .video-play:hover,
+  .video-play:focus-visible {
+    background: var(--ebl-acento-tinta);
+    box-shadow: 0 0 0 10px color-mix(in oklab, var(--ebl-acento) 22%, transparent);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .video-quadro:hover .video-play { transform: scale(1.06); }
+  }
+
+  .video-titulo {
+    font-weight: 600;
+  }
+
+  .video-texto {
+    font-size: 0.97rem;
+    line-height: 1.5;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.video').forEach((fig) => {
+    const botao = fig.querySelector<HTMLButtonElement>('.video-play')
+    const quadro = fig.querySelector<HTMLElement>('.video-quadro')
+    if (!botao || !quadro) return
+    botao.addEventListener('click', () => {
+      const iframe = document.createElement('iframe')
+      iframe.src = `https://www.youtube-nocookie.com/embed/${fig.dataset.id}?autoplay=1&rel=0`
+      iframe.title = fig.dataset.titulo || ''
+      iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'
+      iframe.setAttribute('allowfullscreen', '')
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin'
+      quadro.replaceChildren(iframe)
+      iframe.focus()
+    })
+  })
+</script>

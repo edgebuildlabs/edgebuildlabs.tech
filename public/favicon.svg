@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000" role="img" aria-label="Edge Build Labs">
+  <title>Edge Build Labs — símbolo</title>
+  <rect width="1000" height="1000" fill="#14130f"/>
+  <g transform="translate(140 140) scale(0.9)"><path d="M0 0 L700 0 L700 170 L520 170 L520 370 L220 370 L220 570 L0 570 Z" fill="#ece7dd"/><path d="M800 800 L100 800 L100 630 L280 630 L280 430 L580 430 L580 230 L800 230 Z" fill="#d7b174"/></g>
+</svg>

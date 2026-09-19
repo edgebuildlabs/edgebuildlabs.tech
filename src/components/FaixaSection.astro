@@ -1,0 +1,61 @@
+---
+const { t } = Astro.props
+const f = t.faixa
+---
+
+<!-- Faixa técnica: a única seção em fundo contrastado. Aponta para a tese em inglês. -->
+<aside class="faixa" aria-label={t.lang === 'en' ? 'Thesis site' : 'Site da tese'}>
+  <div class="wrap faixa-linha">
+    <p class="faixa-texto">{f.texto}</p>
+    <a class="link-seta faixa-link" href={f.href} rel="noopener">
+      <span class="t-mono">{f.link}</span>
+      <span class="seta" aria-hidden="true">→</span>
+    </a>
+  </div>
+</aside>
+
+<style>
+  .faixa {
+    background: var(--ebl-acento);
+    color: var(--ebl-sobre-acento);
+    padding-block: clamp(2rem, 4vw, 3rem);
+  }
+
+  .faixa-linha {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .faixa-texto {
+    font-size: clamp(1.1rem, 1rem + 0.7vw, 1.5rem);
+    line-height: 1.35;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    max-width: 40ch;
+    margin: 0;
+  }
+
+  .faixa-link {
+    font-size: 1.05rem;
+    color: inherit;
+    flex: none;
+  }
+
+  .faixa-link:hover {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  @media (min-width: 48rem) {
+    .faixa-linha {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  }
+</style>

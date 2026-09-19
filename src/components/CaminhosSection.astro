@@ -1,0 +1,29 @@
+---
+const { t } = Astro.props
+const c = t.caminhos
+---
+
+<section class="secao" id="caminhos">
+  <div class="wrap">
+    <p class="t-kicker">{c.kicker}</p>
+    <h2 class="t-h2 mt-3">{c.titulo}</h2>
+
+    <div class="mt-10 md:mt-14 grid gap-5 md:grid-cols-2 md:gap-6 items-stretch">
+      {
+        c.cartoes.map((cartao, i) => (
+          <article class="cartao">
+            <h3 class="t-h3">{cartao.titulo}</h3>
+            <p class="t-corpo">{cartao.texto}</p>
+            {/* Revisões e prazo: números aprovados pelo Owner em 18/09 (trabalho/2026-09-18-precificacao.md). NÃO VERIFICADO: "no seu servidor ou no nosso" ainda é texto de partida. */}
+            <ul>
+              {cartao.itens.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <p class="cartao-rodape">{c.contrato}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

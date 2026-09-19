@@ -1,0 +1,87 @@
+---
+import Simbolo from './Simbolo.astro'
+import Wordmark from './Wordmark.astro'
+import BotaoTema from './BotaoTema.astro'
+
+const { t, altPath } = Astro.props
+const home = t.lang === 'en' ? '/en/' : '/'
+---
+
+<header class="wrap py-6 md:py-8 flex items-center justify-between gap-6">
+  <!-- Lockup: símbolo + wordmark, geometria do kit (símbolo 900 u sobre cap 670 u; 300 u de vão) -->
+  <a href={home} class="lockup" aria-label="Edge Build Labs">
+    <Simbolo class="lockup-simbolo" size="34" />
+    <Wordmark class="lockup-wordmark" height="20" />
+  </a>
+
+  <nav class="hidden md:flex items-center gap-7 text-[0.95rem]" aria-label={t.lang === 'en' ? 'Sections' : 'Seções'}>
+    {t.nav.map((item) => <a class="nav-link" href={item.href}>{item.rotulo}</a>)}
+  </nav>
+
+  <div class="flex items-center gap-2">
+    <a class="idioma" href={altPath} lang={t.lang === 'en' ? 'pt-BR' : 'en'} aria-label={t.outroIdioma.aria}>
+      {t.outroIdioma.rotulo}
+    </a>
+    <BotaoTema aria={t.tema.aria} />
+  </div>
+</header>
+
+<style>
+  .lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    line-height: 0;
+  }
+
+  .lockup-simbolo {
+    flex: none;
+    transition: transform 700ms var(--ebl-suave);
+  }
+
+  /* Microinteração do cabeçalho: o símbolo gira 180° e continua o mesmo símbolo — é a prova do encaixe. */
+  @media (prefers-reduced-motion: no-preference) {
+    .lockup:hover .lockup-simbolo { transform: rotate(180deg); }
+  }
+
+  .lockup-wordmark {
+    width: auto;
+    display: block;
+  }
+
+  @media (max-width: 22rem) {
+    .lockup-wordmark { display: none; }
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: var(--ebl-tinta-suave);
+    padding-block: 0.25rem;
+    border-bottom: 1px solid transparent;
+    transition: color 200ms var(--ebl-suave), border-color 200ms var(--ebl-suave);
+  }
+
+  .nav-link:hover {
+    color: var(--ebl-tinta);
+    border-bottom-color: var(--ebl-acento);
+  }
+
+  .idioma {
+    font-family: var(--ebl-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    color: var(--ebl-tinta-suave);
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--ebl-regua);
+    border-radius: var(--ebl-raio);
+    line-height: 1;
+    transition: color 200ms var(--ebl-suave), border-color 200ms var(--ebl-suave);
+  }
+
+  .idioma:hover {
+    color: var(--ebl-tinta);
+    border-color: var(--ebl-tinta-fraca);
+  }
+</style>

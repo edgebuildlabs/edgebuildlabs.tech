@@ -1,0 +1,68 @@
+/* Tokens de marca — Edge Build Labs, kit "Encaixe verificável"
+   (entregas/marca-identidade-kit/README.md, 18/09/2026).
+
+   Hex do kit, exatos:
+     fundo            #14130f (escuro)  /  #fbfaf7 (claro)
+     principal        #ece7dd           /  #14130f   (bloco A do símbolo, wordmark, texto)
+     complementar     #d7b174           /  #7a5c2e   (bloco B do símbolo, acento)
+   Os neutros (painel, tinta suave/fraca, régua, acento-tinta) vêm do site-style.css
+   da tese (entregas/marca-identidade-insumos), mesma família de cor.
+
+   O escuro é o tema principal e o padrão; o claro entra por html[data-theme="light"]. */
+
+:root {
+  color-scheme: dark;
+
+  --ebl-fundo: #14130f;
+  --ebl-painel: #1d1b16;
+  --ebl-tinta: #ece7dd;
+  --ebl-tinta-suave: #b3aca0;
+  --ebl-tinta-fraca: #7e776c;
+  --ebl-regua: #33302a;
+  --ebl-acento: #d7b174;
+  --ebl-acento-tinta: #e6c68f;
+  --ebl-sobre-acento: #14130f;
+
+  /* O símbolo lê estas duas. */
+  --ebl-principal: var(--ebl-tinta);
+  --ebl-complementar: var(--ebl-acento);
+
+  /* Tipografia */
+  --ebl-serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --ebl-mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  /* Ritmo */
+  --ebl-secao: clamp(4.5rem, 10vw, 8.5rem);
+  --ebl-largura: 72rem;
+  --ebl-gutter: 1.25rem;
+  --ebl-raio: 4px;
+
+  /* Movimento */
+  --ebl-suave: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+
+  --ebl-fundo: #fbfaf7;
+  --ebl-painel: #f3f1ec;
+  --ebl-tinta: #14130f;
+  --ebl-tinta-suave: #55504a;
+  --ebl-tinta-fraca: #8a837a;
+  --ebl-regua: #ddd8cf;
+  --ebl-acento: #7a5c2e;
+  --ebl-acento-tinta: #5d4522;
+  --ebl-sobre-acento: #fbfaf7;
+}
+
+/* Source Serif 4, variável (opsz 8–60, wght 200–900), servida deste site.
+   WOFF2 = mesmos dados da fonte, só comprimidos (FAQ do OFL, 2.2.1); o TTF original
+   e a licença estão em /fonte/. */
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("/fonte/SourceSerif4-variavel.woff2") format("woff2"),
+       url("/fonte/SourceSerif4-variavel.ttf") format("truetype");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}

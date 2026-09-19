@@ -1,0 +1,33 @@
+---
+const { aria } = Astro.props
+---
+
+<button type="button" class="tema-btn" data-tema-btn aria-label={aria} aria-pressed="false">
+  <svg class="icone-sol" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" />
+  </svg>
+  <svg class="icone-lua" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" />
+  </svg>
+</button>
+
+<style>
+  .tema-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    border: 1px solid var(--ebl-regua);
+    border-radius: var(--ebl-raio);
+    background: transparent;
+    color: var(--ebl-tinta-suave);
+    cursor: pointer;
+    transition: color 200ms var(--ebl-suave), border-color 200ms var(--ebl-suave);
+  }
+
+  .tema-btn:hover {
+    color: var(--ebl-tinta);
+    border-color: var(--ebl-tinta-fraca);
+  }
+</style>
