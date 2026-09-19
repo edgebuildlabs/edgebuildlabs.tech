@@ -35,7 +35,7 @@
       },
       {
         "titulo": "Automação e agentes com evidência",
-        "texto": "Em construção: rotinas, integrações e agentes que trabalham sozinhos — e deixam recibo do que fizeram. O contrato já é público; preço só na proposta, quando houver.",
+        "texto": "Rotinas, integrações e agentes que trabalham sozinhos — e deixam recibo do que fizeram. O contrato é público; escopo e preço saem na proposta.",
         "itens": [
           "Cada execução registra o que rodou, quando, e o que voltou",
           "Roda no seu servidor ou no nosso",

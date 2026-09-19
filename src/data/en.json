@@ -35,7 +35,7 @@
       },
       {
         "titulo": "Automation and agents with evidence",
-        "texto": "In progress: routines, integrations and agents that work on their own — and leave a receipt of what they did. The contract is already public; price in the proposal, when there is one.",
+        "texto": "Routines, integrations and agents that work on their own — and leave a receipt of what they did. The contract is public; scope and price come in the proposal.",
         "itens": [
           "Every run records what ran, when, and what came back",
           "Runs on your server or on ours",
