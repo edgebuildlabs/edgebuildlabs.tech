@@ -91,6 +91,12 @@
         "texto": "Como se pede o trabalho para que a prova seja possível: objetivo, estado, escopo, aceite, limites, evidência e parada. Um modelo em domínio público (CC0).",
         "link": "github.com/edgebuildlabs/work-order-contract",
         "href": "https://github.com/edgebuildlabs/work-order-contract"
+      },
+      {
+        "titulo": "channel-contract",
+        "texto": "Como se fala com um agente que roda numa máquina que você não controla, e como a entrega dele sobrevive à sessão: um repositório usado como canal, com o contrato dentro. Extraído de um canal que rodou seis dias com cinco agentes. Domínio público (CC0).",
+        "link": "github.com/edgebuildlabs/channel-contract",
+        "href": "https://github.com/edgebuildlabs/channel-contract"
       }
     ]
   },

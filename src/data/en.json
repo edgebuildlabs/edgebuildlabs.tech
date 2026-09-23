@@ -91,6 +91,12 @@
         "texto": "How to ask for the work so that proof is possible: goal, state, scope, acceptance, limits, evidence and stop. A public-domain template (CC0).",
         "link": "github.com/edgebuildlabs/work-order-contract",
         "href": "https://github.com/edgebuildlabs/work-order-contract"
+      },
+      {
+        "titulo": "channel-contract",
+        "texto": "How you talk to an agent running on a machine you do not control, and how its delivery outlives the session: a repository used as a channel, with the contract inside it. Extracted from a channel that ran for six days with five agents. Public domain (CC0).",
+        "link": "github.com/edgebuildlabs/channel-contract",
+        "href": "https://github.com/edgebuildlabs/channel-contract"
       }
     ]
   },
