@@ -4,7 +4,7 @@
   "meta": {
     "titulo": "Edge Build Labs — construído por agentes de IA, provado antes de entregue",
     "imagemAlt": "O símbolo de degraus, em creme e dourado, ao lado do nome Edge Build Labs, sobre fundo quase preto.",
-    "descricao": "Vídeo para redes e YouTube — curto vertical e longo narrado sem rosto — e automação com agentes de IA, sob um contrato que obriga o agente a provar o trabalho. Uma pessoa, no Brasil, em tempo integral."
+    "descricao": "Vídeo para redes e YouTube — curto vertical e longo narrado sem rosto — e automação com agentes de IA, sob um contrato que obriga o agente a provar o trabalho. Feito por uma pessoa, Evandro Henn, no Brasil, em tempo integral."
   },
   "nav": [
     { "rotulo": "Caminhos", "href": "#caminhos" },
@@ -16,8 +16,8 @@
   "heroi": {
     "linha1": "Construído por agentes de IA.",
     "linha2": "Provado antes de entregue.",
-    "sub": "Uma pessoa, no Brasil, em tempo integral, com uma frota de agentes num servidor próprio.",
-    "cta": "Ver o que já fizemos",
+    "sub": "Evandro Henn — uma pessoa, no Brasil, em tempo integral, com uma frota de agentes num servidor próprio.",
+    "cta": "Ver o que já está feito",
     "ctaHref": "#prova"
   },
   "caminhos": {
@@ -39,7 +39,7 @@
         "texto": "Rotinas, integrações e agentes que trabalham sozinhos — e deixam recibo do que fizeram. O contrato é público; escopo e preço saem na proposta.",
         "itens": [
           "Cada execução registra o que rodou, quando, e o que voltou",
-          "Roda no seu servidor ou no nosso",
+          "Roda no seu servidor ou num servidor próprio da Edge Build Labs",
           "Entregue com o contrato de evidência aplicado"
         ]
       }
@@ -47,7 +47,7 @@
   },
   "prova": {
     "kicker": "Prova de trabalho",
-    "titulo": "O que já fizemos.",
+    "titulo": "O que já está feito.",
     "lead": "Coisas que um estranho pode abrir e conferir.",
     "videoAviso": "O vídeo carrega do YouTube só depois do clique.",
     "reproduzir": "Reproduzir",
@@ -101,9 +101,9 @@
     ]
   },
   "escada": {
-    "kicker": "Como trabalhamos",
+    "kicker": "Como o trabalho é conferido",
     "titulo": "A escada.",
-    "lead": "Quatro palavras que um agente confunde. Nós não.",
+    "lead": "Quatro palavras que um agente confunde. Aqui, não.",
     "degraus": [
       { "rotulo": "STARTED", "texto": "O processo começou. Só isso." },
       { "rotulo": "COMPLETED", "texto": "O agente diz que terminou. É uma frase, não um fato." },
@@ -116,11 +116,13 @@
   "faixa": {
     "texto": "Roda agentes em infraestrutura? O método inteiro, em inglês, está no site da tese.",
     "link": "edgebuildlabs.github.io",
-    "href": "https://edgebuildlabs.github.io/"
+    "href": "https://edgebuildlabs.github.io/",
+    "livro": { "texto": "O livro: Não está provado", "href": "/livro/" }
   },
   "contato": {
     "kicker": "Contato",
     "titulo": "Conte por e-mail o que precisa e para quando. Por escrito, sem ligação.",
+    "quem": "Quem lê o briefing, responde e aceita a entrega é Evandro Henn.",
     "itens": [
       { "rotulo": "E-mail", "valor": "contato@edgebuildlabs.tech", "href": "mailto:contato@edgebuildlabs.tech" },
       { "rotulo": "X", "valor": "@EdgeBuildLabs", "href": "https://x.com/EdgeBuildLabs" },
@@ -130,10 +132,12 @@
   },
   "rodape": {
     "linhas": [
+      "A Edge Build Labs é uma pessoa: Evandro Henn, no Brasil.",
       "Servido em servidor próprio. Sem rastreador e sem cookie.",
       "Tema a partir do blackspike astro landing page (CC BY 4.0). Fonte Source Serif 4 (OFL)."
     ],
     "links": [
+      { "rotulo": "Livro", "href": "/livro/" },
       { "rotulo": "Living World", "href": "https://livingworld.edgebuildlabs.tech/" },
       { "rotulo": "Site da tese (EN)", "href": "https://edgebuildlabs.github.io/" },
       { "rotulo": "Créditos", "href": "/creditos/" }
@@ -147,7 +151,7 @@
     "blocos": [
       {
         "titulo": "Tema",
-        "html": "Este site parte do <a href=\"https://github.com/blackspike/blackspike-astro-landing-page\">blackspike astro landing page</a>, de <a href=\"https://www.blackspike.com\">blackspike design</a>, sob <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0</a>. Cortamos as seções que não usamos e trocamos fonte, cores e componentes; a estrutura Astro + Tailwind e as animações de rolagem em CSS vêm de lá. O texto da licença acompanha o código-fonte."
+        "html": "Este site parte do <a href=\"https://github.com/blackspike/blackspike-astro-landing-page\">blackspike astro landing page</a>, de <a href=\"https://www.blackspike.com\">blackspike design</a>, sob <a href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0</a>. As seções sem uso foram cortadas, e fonte, cores e componentes, trocados; a estrutura Astro + Tailwind e as animações de rolagem em CSS vêm de lá. O texto da licença acompanha o código-fonte."
       },
       {
         "titulo": "Fonte",

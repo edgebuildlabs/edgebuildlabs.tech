@@ -7,10 +7,20 @@ const f = t.faixa
 <aside class="faixa" aria-label={t.lang === 'en' ? 'Thesis site' : 'Site da tese'}>
   <div class="wrap faixa-linha">
     <p class="faixa-texto">{f.texto}</p>
-    <a class="link-seta faixa-link" href={f.href} rel="noopener">
-      <span class="t-mono">{f.link}</span>
-      <span class="seta" aria-hidden="true">→</span>
-    </a>
+    <div class="faixa-links">
+      <a class="link-seta faixa-link" href={f.href} rel="noopener">
+        <span class="t-mono">{f.link}</span>
+        <span class="seta" aria-hidden="true">→</span>
+      </a>
+      {
+        f.livro && (
+          <a class="link-seta faixa-link faixa-livro" href={f.livro.href}>
+            {f.livro.texto}
+            <span class="seta" aria-hidden="true">→</span>
+          </a>
+        )
+      }
+    </div>
   </div>
 </aside>
 
@@ -41,6 +51,17 @@ const f = t.faixa
     font-size: 1.05rem;
     color: inherit;
     flex: none;
+  }
+
+  .faixa-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: none;
+  }
+
+  .faixa-livro {
+    font-size: 0.95rem;
   }
 
   .faixa-link:hover {

@@ -8,6 +8,7 @@ const c = t.contato
   <div class="wrap">
     <p class="t-kicker">{c.kicker}</p>
     <h2 class="t-h2 mt-3">{c.titulo}</h2>
+    {c.quem && <p class="t-lead contato-quem mt-4">{c.quem}</p>}
 
     <dl class="contatos mt-10 md:mt-14">
       {
@@ -31,6 +32,10 @@ const c = t.contato
     display: grid;
     gap: 0;
     margin: 0;
+  }
+
+  .contato-quem {
+    margin-bottom: 2.5rem;
   }
 
   .contato {

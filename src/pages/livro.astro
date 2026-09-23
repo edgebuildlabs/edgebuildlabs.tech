@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro'
+import t from '../data/pt.json'
+
+// Página só em português: o livro não tem edição em inglês. O cabeçalho aponta o EN para a página inicial em inglês.
+// Texto de apresentação a partir de C:\owner\livro\livro\edicao\sinopse.md e do "Sobre o autor" do próprio livro (23/09/2026).
+const regras = [
+  'Um teste verde responde apenas às perguntas que alguém escreveu. O usuário ainda pode fazer a pergunta que faltou.',
+  'Palavras do executor são um sinal. Os arquivos, os testes e o usuário são o mundo — e até eles precisam ser avaliados pela pergunta correta.',
+  'Prova que depende da sua presença é depoimento. Coloque o objeto onde um estranho possa abri-lo sem você.',
+  'Produzir mais depressa não é ouvir melhor. Quem monta uma cadeia para falar com o mundo precisa de outra, tão boa quanto, para escutar o que o mundo responde.',
+]
+---
+
+<Layout
+  t={t}
+  title="Não está provado — um livro de Evandro Henn"
+  description="Um autodidata de 40 anos, sem carreira em programação, aprende a construir software com inteligência artificial — e a desconfiar de cada “pronto” que as máquinas lhe dizem. PDF e EPUB grátis, sem cadastro."
+  path="/livro/"
+  altPath="/en/"
+  alternativas={false}
+  og={{
+    imagem: '/livro/og-livro-1200x630.jpg',
+    largura: '1200',
+    altura: '630',
+    tipo: 'image/jpeg',
+    alt: 'Capa do livro Não está provado, de Evandro Henn: a escada STARTED, COMPLETED e VALIDATED com visto, e PASS com interrogação.',
+  }}
+>
+  <section class="secao livro">
+    <div class="wrap livro-grid">
+      <img
+        class="livro-capa"
+        src="/livro/capa-800.jpg"
+        width="800"
+        height="1280"
+        alt="Capa do livro: a escada STARTED, COMPLETED e VALIDATED com visto, PASS com interrogação, e o título Não está provado."
+      />
+
+      <div class="livro-texto">
+        <p class="t-kicker">Livro</p>
+        <h1 class="t-h2 mt-3">Não está provado</h1>
+        <p class="t-lead mt-4">
+          Como um autodidata aos 40 anos aprendeu a construir software real com IA — da primeira conversa a uma operação de
+          agentes.
+        </p>
+        <p class="livro-autor mt-4">Evandro Henn</p>
+
+        <p class="t-small livro-ficha mt-6">
+          118 páginas · português · a narrativa para em 22 de setembro de 2026 · grátis, sem cadastro
+        </p>
+
+        <div class="livro-downloads mt-8">
+          <a class="btn" href="/livro/nao-esta-provado.pdf" download>Baixar PDF</a>
+          <a class="btn btn-ghost" href="/livro/nao-esta-provado.epub" download type="application/epub+zip">Baixar EPUB</a>
+        </div>
+        <p class="t-small livro-formatos mt-3">
+          PDF (660 KB), 6×9, para ler no computador ou imprimir · EPUB (266 KB), para leitor digital, já com capa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap livro-corpo">
+      <p class="t-kicker">Do que trata</p>
+      <p class="t-corpo mt-6">
+        Em maio de 2026, Evandro Henn usava o ChatGPT para organizar o que sabia de poker. Três meses depois, comandava
+        agentes de inteligência artificial que escreviam código, testavam, criticavam uns aos outros e mantinham sistemas no
+        ar. Ele nunca tinha trabalhado como programador.
+      </p>
+      <p class="t-corpo mt-4">
+        Este livro reconstrói essa passagem a partir dos registros — conversas, testes, relatórios e erros guardados de
+        propósito. Não é um manual para substituir desenvolvedores nem uma história de sucesso: é o relato de alguém que
+        descobriu que a IA encurta a distância entre uma ideia e uma implementação, mas não a distância entre uma
+        implementação e a verdade.
+      </p>
+      <p class="t-corpo mt-4">
+        Um agente diz que terminou e nenhum arquivo mudou. Cento e vinte e sete testes passam e o produto continua errado.
+        Uma cadeia de agentes monta o corte bruto de um documentário em menos de duas horas, na mesma tarde em que o mercado
+        recusa duas propostas sem que ninguém ouça.
+      </p>
+      <p class="t-corpo mt-4">
+        Vinte e três capítulos, vinte e três regras para construir com agentes sem se enganar — e uma pergunta que o livro
+        deixa aberta de propósito.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap livro-corpo">
+      <p class="t-kicker">Quatro das vinte e três regras</p>
+      <ol class="livro-regras mt-6">
+        {regras.map((r) => <li class="t-corpo">{r}</li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="wrap livro-corpo">
+      <p class="t-kicker">Sobre o autor</p>
+      <p class="t-corpo mt-6">
+        Evandro Henn vive em Marechal Cândido Rondon, no oeste do Paraná. Foi Assistente Legislativo na Câmara Municipal,
+        coautor do livro coletivo <em>Manual do Vereador do Paraná: Vença os temas que desafiam os legislativos municipais</em>{' '}(Editora Germânica, 2010) e passou cerca de duas décadas no poker online, onde aprendeu a separar decisão de
+        resultado.
+      </p>
+      <p class="t-corpo mt-4">
+        Em 2026, aos 40 anos, passou de usar inteligência artificial para estudar a coordenar agentes que pesquisam,
+        constroem, testam e mantêm software, infraestrutura e vídeo. Não escreve código como atividade principal: seu
+        trabalho é definir o problema, dirigir, julgar e responder pelo que aceita.
+      </p>
+      <p class="t-corpo mt-4">
+        É ele quem está por trás da Edge Build Labs: lê cada briefing, responde e aceita cada entrega.
+      </p>
+
+      <p class="t-small livro-direitos mt-10">
+        © 2026 Evandro Henn. Todos os direitos reservados. Download gratuito para leitura pessoal. Os contratos citados no
+        livro estão em domínio público (CC0); o livro não.
+      </p>
+
+      <a class="link-seta mt-10 block" href="/">
+        <span class="seta" aria-hidden="true">←</span>
+        Voltar ao início
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .livro-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .livro-capa {
+    width: min(100%, 20rem);
+    height: auto;
+    border-radius: var(--ebl-raio);
+    border: 1px solid var(--ebl-regua);
+  }
+
+  .livro-autor {
+    font-family: var(--ebl-mono);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ebl-acento);
+  }
+
+  .livro-ficha,
+  .livro-formatos,
+  .livro-direitos {
+    color: var(--ebl-tinta-suave);
+    max-width: 62ch;
+  }
+
+  .livro-downloads {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .livro-corpo {
+    max-width: 48rem;
+  }
+
+  .livro-regras {
+    display: grid;
+    gap: 1.25rem;
+    padding-left: 1.4rem;
+    margin: 1.5rem 0 0;
+  }
+
+  .link-seta:hover .seta {
+    transform: translateX(-0.3em);
+  }
+
+  @media (min-width: 48rem) {
+    .livro-grid {
+      grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+      gap: 4rem;
+      align-items: center;
+    }
+  }
+</style>

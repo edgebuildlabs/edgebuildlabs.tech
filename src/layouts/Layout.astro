@@ -4,7 +4,10 @@ import '../assets/css/global.css'
 import HeaderMain from '../components/HeaderMain.astro'
 import FooterMain from '../components/FooterMain.astro'
 
-const { t, title, description, path, altPath } = Astro.props
+const { t, title, description, path, altPath, alternativas = true, og } = Astro.props
+// og opcional: { imagem, largura, altura, tipo, alt } para página com imagem própria (ex.: /livro/)
+const ogImagem = og ? og.imagem : '/og-2048x1152.png'
+const ogAlt = og ? og.alt : t.meta.imagemAlt
 const site = 'https://edgebuildlabs.tech'
 const isEn = t.lang === 'en'
 const ptHref = site + (isEn ? altPath : path)
@@ -21,9 +24,9 @@ const enHref = site + (isEn ? path : altPath)
     <meta name="theme-color" content="#14130f" />
 
     <link rel="canonical" href={site + path} />
-    <link rel="alternate" hreflang="pt-BR" href={ptHref} />
-    <link rel="alternate" hreflang="en" href={enHref} />
-    <link rel="alternate" hreflang="x-default" href={ptHref} />
+    {alternativas && <link rel="alternate" hreflang="pt-BR" href={ptHref} />}
+    {alternativas && <link rel="alternate" hreflang="en" href={enHref} />}
+    {alternativas && <link rel="alternate" hreflang="x-default" href={ptHref} />}
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-64.png" type="image/png" sizes="64x64" />
@@ -35,22 +38,22 @@ const enHref = site + (isEn ? path : altPath)
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={site + path} />
-    <meta property="og:image" content={site + '/og-2048x1152.png'} />
-    <meta property="og:image:secure_url" content={site + '/og-2048x1152.png'} />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="2048" />
-    <meta property="og:image:height" content="1152" />
-    <meta property="og:image:alt" content={t.meta.imagemAlt} />
+    <meta property="og:image" content={site + ogImagem} />
+    <meta property="og:image:secure_url" content={site + ogImagem} />
+    <meta property="og:image:type" content={og ? og.tipo : 'image/png'} />
+    <meta property="og:image:width" content={og ? og.largura : '2048'} />
+    <meta property="og:image:height" content={og ? og.altura : '1152'} />
+    <meta property="og:image:alt" content={ogAlt} />
     <meta property="og:locale" content={isEn ? 'en_US' : 'pt_BR'} />
-    <meta property="og:locale:alternate" content={isEn ? 'pt_BR' : 'en_US'} />
+    {alternativas && <meta property="og:locale:alternate" content={isEn ? 'pt_BR' : 'en_US'} />}
 
     <!-- O X cai no og quando o twitter:* falta, mas o alt não tem equivalente: sem ele, quem
          usa leitor de tela recebe um cartão mudo. O Living World já traz os quatro. -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={site + '/og-2048x1152.png'} />
-    <meta name="twitter:image:alt" content={t.meta.imagemAlt} />
+    <meta name="twitter:image" content={site + ogImagem} />
+    <meta name="twitter:image:alt" content={ogAlt} />
 
     <link rel="preload" href="/fonte/SourceSerif4-variavel.woff2" as="font" type="font/woff2" crossorigin />
 
