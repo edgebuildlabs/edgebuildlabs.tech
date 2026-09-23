@@ -3,7 +3,8 @@
   "outroIdioma": { "rotulo": "PT", "href": "/", "hrefCreditos": "/creditos/", "aria": "Ler em português" },
   "meta": {
     "titulo": "Edge Build Labs — built by AI agents, proven before delivered",
-    "descricao": "Short video for social media and automation with AI agents, under a contract that makes the agent prove its work. One person, in Brazil, full time."
+    "imagemAlt": "The step symbol, in cream and gold, beside the Edge Build Labs wordmark, on a near-black background.",
+    "descricao": "Video for social media and YouTube — short vertical and long-form narrated, faceless — and automation with AI agents, under a contract that makes the agent prove its work. One person, in Brazil, full time."
   },
   "nav": [
     { "rotulo": "Paths", "href": "#caminhos" },
@@ -25,12 +26,12 @@
     "contrato": "Scope, deadline and price agreed in writing.",
     "cartoes": [
       {
-        "titulo": "Short video for social media",
-        "texto": "Voice-over, music, effects and on-screen text. Up to 60 seconds, in the network's format.",
+        "titulo": "Video for social media and YouTube",
+        "texto": "Voice-over, music, effects and on-screen text. Two lines: short vertical up to 60 seconds, in the network's format, and long-form narrated, faceless, 10 to 20 minutes, ready for YouTube.",
         "itens": [
-          "Script from your brief",
+          "Script from your brief, or editing from the script you bring",
           "One revision round on the pilot, two after that",
-          "First cut in 3 business days from the brief"
+          "First cut in 3 calendar days for short, 5 for long-form, from the brief"
         ]
       },
       {
@@ -60,6 +61,16 @@
         "id": "aU_iT-dYK-4",
         "titulo": "Living World ad, 32 s",
         "texto": "Real captures of the site and the site's own artwork; Remotion type; synthetic voice-over. No generated imagery, no real people. In Portuguese."
+      },
+      {
+        "id": "G5l2Bn3m8us",
+        "titulo": "Editing raw footage, 34 s",
+        "texto": "From raw footage to finished video: cuts on the beat of the speech, captions, sound effects and licensed music, in 9:16. Stock footage; synthetic voice-over. In Portuguese."
+      },
+      {
+        "id": "1ahON1FZ8zw",
+        "titulo": "Narrated documentary, 16 min",
+        "texto": "The whole long-form line, made here: script, images, voice-over, editing, music and captions. Faceless, with the source on screen for every claim. Own piece, no client. In Portuguese."
       }
     ],
     "itens": [

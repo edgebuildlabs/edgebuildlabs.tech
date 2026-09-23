@@ -27,17 +27,30 @@ const enHref = site + (isEn ? path : altPath)
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-64.png" type="image/png" sizes="64x64" />
+    <link rel="apple-touch-icon" href="/icone-800.png" />
     <link rel="manifest" href="/manifest.json" />
 
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Edge Build Labs" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={site + path} />
     <meta property="og:image" content={site + '/og-2048x1152.png'} />
+    <meta property="og:image:secure_url" content={site + '/og-2048x1152.png'} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="2048" />
     <meta property="og:image:height" content="1152" />
+    <meta property="og:image:alt" content={t.meta.imagemAlt} />
     <meta property="og:locale" content={isEn ? 'en_US' : 'pt_BR'} />
+    <meta property="og:locale:alternate" content={isEn ? 'pt_BR' : 'en_US'} />
+
+    <!-- O X cai no og quando o twitter:* falta, mas o alt não tem equivalente: sem ele, quem
+         usa leitor de tela recebe um cartão mudo. O Living World já traz os quatro. -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={site + '/og-2048x1152.png'} />
+    <meta name="twitter:image:alt" content={t.meta.imagemAlt} />
 
     <link rel="preload" href="/fonte/SourceSerif4-variavel.woff2" as="font" type="font/woff2" crossorigin />
 

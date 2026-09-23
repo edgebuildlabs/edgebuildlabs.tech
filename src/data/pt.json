@@ -3,7 +3,8 @@
   "outroIdioma": { "rotulo": "EN", "href": "/en/", "hrefCreditos": "/en/creditos/", "aria": "Read in English" },
   "meta": {
     "titulo": "Edge Build Labs — construído por agentes de IA, provado antes de entregue",
-    "descricao": "Vídeo curto para redes e automação com agentes de IA, sob um contrato que obriga o agente a provar o trabalho. Uma pessoa, no Brasil, em tempo integral."
+    "imagemAlt": "O símbolo de degraus, em creme e dourado, ao lado do nome Edge Build Labs, sobre fundo quase preto.",
+    "descricao": "Vídeo para redes e YouTube — curto vertical e longo narrado sem rosto — e automação com agentes de IA, sob um contrato que obriga o agente a provar o trabalho. Uma pessoa, no Brasil, em tempo integral."
   },
   "nav": [
     { "rotulo": "Caminhos", "href": "#caminhos" },
@@ -25,12 +26,12 @@
     "contrato": "Escopo, prazo e preço fechados por escrito.",
     "cartoes": [
       {
-        "titulo": "Vídeo curto para redes",
-        "texto": "Narração, trilha, efeitos e texto na tela. Até 60 segundos, no formato da rede.",
+        "titulo": "Vídeo para redes e YouTube",
+        "texto": "Narração, trilha, efeitos e texto na tela. Duas linhas: curto vertical até 60 segundos, no formato da rede, e longo narrado sem rosto, de 10 a 20 minutos, pronto para o YouTube.",
         "itens": [
-          "Roteiro a partir do seu briefing",
+          "Roteiro a partir do seu briefing, ou montagem a partir do roteiro que você trouxer",
           "Uma rodada de revisão no piloto, duas nas seguintes",
-          "Primeira versão em 3 dias úteis a partir do briefing"
+          "Primeira versão em 3 dias corridos no curto, 5 no longo, a partir do briefing"
         ]
       },
       {
@@ -60,6 +61,16 @@
         "id": "aU_iT-dYK-4",
         "titulo": "Anúncio do Living World, 32 s",
         "texto": "Capturas reais do site e a arte do próprio site; tipografia em Remotion; narração sintética. Sem imagem gerada, sem pessoa real."
+      },
+      {
+        "id": "G5l2Bn3m8us",
+        "titulo": "Edição de material bruto, 34 s",
+        "texto": "Do material bruto ao vídeo pronto: cortes no ritmo da fala, legendas, efeitos sonoros e trilha licenciada, em 9:16. Bruto de banco; narração sintética."
+      },
+      {
+        "id": "1ahON1FZ8zw",
+        "titulo": "Documentário narrado, 16 min",
+        "texto": "A linha longa inteira, feita aqui: roteiro, imagens, narração, montagem, trilha e legendas. Sem rosto, com a fonte na tela a cada afirmação. Peça própria, sem cliente."
       }
     ],
     "itens": [

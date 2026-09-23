@@ -2,10 +2,14 @@
 import VideoLite from './VideoLite.astro'
 import posterExplicativo from '../assets/posters/explicativo-20s.jpg'
 import posterAnuncio from '../assets/posters/anuncio-32s.jpg'
+import posterDemoBruto from '../assets/posters/demo-bruto-34s.jpg'
+import posterDocumentario from '../assets/posters/documentario-16min.jpg'
 
 const { t } = Astro.props
 const p = t.prova
-const posters = [posterExplicativo, posterAnuncio]
+// Um quadro do próprio vídeo, extraído do arquivo local: a capa é servida daqui, e nada
+// carrega de terceiro antes do clique. Na ordem dos vídeos em prova.videos.
+const posters = [posterExplicativo, posterAnuncio, posterDemoBruto, posterDocumentario]
 ---
 
 <section class="secao" id="prova">
