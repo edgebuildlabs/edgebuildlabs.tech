@@ -1,9 +1,13 @@
 ---
+import { linkWhatsApp } from '../data/whatsapp.js'
+
 const { t } = Astro.props
 const c = t.contato
+// Item com a chave "whatsapp" traz a mensagem pronta; o número vem de src/data/whatsapp.js e não aparece na tela.
+const itens = c.itens.map((item) => (item.whatsapp ? { ...item, href: linkWhatsApp(item.whatsapp) } : item))
 ---
 
-<!-- Contato: e-mail público [OWNER] 18/09/2026, X, issue. Sem formulário. -->
+<!-- Contato: e-mail público [OWNER] 18/09/2026, WhatsApp só por mensagem, X e YouTube. Sem formulário. -->
 <section class="secao" id="contato">
   <div class="wrap">
     <p class="t-kicker">{c.kicker}</p>
@@ -12,7 +16,7 @@ const c = t.contato
 
     <dl class="contatos mt-10 md:mt-14">
       {
-        c.itens.map((item) => (
+        itens.map((item) => (
           <div class="contato">
             <dt class="t-kicker">{item.rotulo}</dt>
             <dd>

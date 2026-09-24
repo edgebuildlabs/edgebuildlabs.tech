@@ -20,6 +20,12 @@ const c = t.caminhos
                 <li>{item}</li>
               ))}
             </ul>
+            {cartao.link && (
+              <a class="link-seta cartao-link" href={cartao.link.href} hreflang={cartao.link.hreflang}>
+                {cartao.link.texto}
+                <span class="seta" aria-hidden="true">→</span>
+              </a>
+            )}
             <p class="cartao-rodape">{c.contrato}</p>
           </article>
         ))
@@ -27,3 +33,14 @@ const c = t.caminhos
     </div>
   </div>
 </section>
+
+<style>
+  .cartao-link {
+    color: var(--ebl-acento);
+    align-self: flex-start;
+  }
+
+  .cartao-link:hover {
+    color: var(--ebl-acento-tinta);
+  }
+</style>

@@ -5,7 +5,7 @@ const { t } = Astro.props
 const h = t.heroi
 ---
 
-<!-- Herói. Frase A do briefing [PROP] 18/09/2026 — o Owner escolhe entre A e B. -->
+<!-- Herói: as duas linhas do título são a identidade; abaixo, o que se pode pedir e para quem, e a porta da página de vídeo (24/09/2026). -->
 <section class="secao heroi">
   <div class="wrap heroi-grid">
     <figure class="heroi-simbolo" aria-hidden="true">
@@ -19,12 +19,19 @@ const h = t.heroi
         <span class="t-acento">{h.linha2}</span>
       </h1>
 
-      <p class="t-lead heroi-sub">{h.sub}</p>
+      <p class="t-lead heroi-oferta">{h.oferta}</p>
+      <p class="heroi-sub">{h.sub}</p>
 
-      <a class="btn heroi-cta" href={h.ctaHref}>
-        {h.cta}
-        <span class="seta" aria-hidden="true">↓</span>
-      </a>
+      <div class="heroi-acoes">
+        <a class="btn" href={h.video.href} hreflang={h.video.hreflang}>
+          {h.video.rotulo}
+          <span class="seta" aria-hidden="true">→</span>
+        </a>
+        <a class="btn btn-ghost" href={h.ctaHref}>
+          {h.cta}
+          <span class="seta" aria-hidden="true">↓</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -69,13 +76,27 @@ const h = t.heroi
     max-width: 38ch;
   }
 
-  .heroi-sub {
-    max-width: 34ch;
+  .heroi-oferta {
+    max-width: 40ch;
   }
 
-  .heroi-cta {
-    align-self: flex-start;
+  .heroi-sub {
+    color: var(--ebl-tinta-suave);
+    max-width: 46ch;
+    text-wrap: pretty;
+    margin: 0;
+  }
+
+  .heroi-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     margin-top: 0.5rem;
+  }
+
+  /* Em tela estreita o rótulo de um botão pode quebrar em duas linhas; com line-height 1 elas encostam. */
+  .heroi-acoes .btn {
+    line-height: 1.25;
   }
 
   @media (min-width: 64rem) {

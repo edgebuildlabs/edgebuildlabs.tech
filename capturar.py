@@ -3,10 +3,12 @@
 Uso:  python capturar.py            (depois de `npm run build`)
 
 - serve dist/ numa porta livre com http.server
-- registra TODA requisição de rede de / e /en/ (a lista tem de ser só o próprio host)
+- registra TODA requisição de rede de /, /en/ e /video/ (a lista tem de ser só o próprio host)
 - capturas de página inteira nos dois temas em 1440, 1024, 768 e 390 px -> capturas/
 - confere a fonte carregada, o clique no vídeo (iframe youtube-nocookie só depois do clique)
-- monta folha-apresentacao.png com as quatro larguras no tema escuro
+- monta uma folha de apresentação por página (quatro larguras, tema escuro) em capturas/
+- sai com código 1 se alguma requisição antes do clique for de outro host, se houver iframe antes do clique
+  ou se a fonte não carregar
 """
 from __future__ import annotations
 
@@ -28,7 +30,9 @@ CAP.mkdir(exist_ok=True)
 
 LARGURAS = [1440, 1024, 768, 390]
 TEMAS = ["dark", "light"]
-PAGINAS = ["/", "/en/"]
+PAGINAS = ["/", "/en/", "/video/"]
+PREFIXO = {"/": "pt", "/en/": "en", "/video/": "video"}  # nome das capturas: <prefixo>-<tema>-<largura>.png
+FOLHA = {"pt": "folha-apresentacao.png", "en": "folha-apresentacao-en.png", "video": "folha-apresentacao-video.png"}
 
 
 def porta_livre() -> int:
@@ -45,8 +49,9 @@ def main() -> int:
         stderr=subprocess.DEVNULL,
     )
     base = f"http://127.0.0.1:{porta}"
+    proprio = f"127.0.0.1:{porta}"
     time.sleep(0.8)
-    relatorio: dict = {"base": base, "rede": {}, "fonte": {}, "video": {}, "capturas": []}
+    relatorio: dict = {"base": base, "rede": {}, "fonte": {}, "video": {}, "capturas": [], "falhas": []}
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch()
@@ -64,6 +69,8 @@ def main() -> int:
                 antes_clique = list(reqs)  # snapshot: o que veio depois do clique no vídeo fica em "video"
                 hosts = sorted({urlparse(u).netloc for u in antes_clique})
                 relatorio["rede"][pag] = {"requisicoes": antes_clique, "hosts": hosts}
+                if hosts != [proprio]:
+                    relatorio["falhas"].append(f"{pag}: requisição a outro host antes do clique: {hosts}")
 
                 # fonte servida daqui?
                 fonte = page.evaluate(
@@ -73,6 +80,8 @@ def main() -> int:
                                  h1: getComputedStyle(document.querySelector('h1')).fontFamily } }"""
                 )
                 relatorio["fonte"][pag] = fonte
+                if not fonte["check"]:
+                    relatorio["falhas"].append(f"{pag}: Source Serif 4 não carregou")
 
                 # vídeo: antes do clique nenhum iframe; depois, iframe do youtube-nocookie e requisições só a partir daí
                 antes = page.evaluate("document.querySelectorAll('iframe').length")
@@ -82,6 +91,8 @@ def main() -> int:
                 src = page.evaluate("document.querySelector('iframe') && document.querySelector('iframe').src")
                 depois = sorted({urlparse(u).netloc for u in reqs[n_antes:]})
                 relatorio["video"][pag] = {"iframes_antes": antes, "iframe_src": src, "hosts_apos_clique": depois}
+                if antes != 0 or not (src or "").startswith("https://www.youtube-nocookie.com/embed/"):
+                    relatorio["falhas"].append(f"{pag}: player fora do combinado (iframes antes={antes}, src={src})")
                 ctx.close()
 
             # 2) capturas: dois temas, quatro larguras, movimento desligado
@@ -105,46 +116,58 @@ def main() -> int:
                         page.wait_for_load_state("networkidle")
                         page.evaluate("window.scrollTo(0, 0)")
                         page.wait_for_timeout(400)
-                        nome = f"{'pt' if pag == '/' else 'en'}-{tema}-{w}.png"
+                        nome = f"{PREFIXO[pag]}-{tema}-{w}.png"
                         page.screenshot(path=str(CAP / nome), full_page=True)
                         relatorio["capturas"].append(nome)
                     ctx.close()
 
-            # 3) créditos, só escuro 1024, para conferir
+            # 3) créditos e privacidade, só escuro 1024, para conferir
             ctx = browser.new_context(viewport={"width": 1024, "height": 900}, reduced_motion="reduce")
             page = ctx.new_page()
-            page.goto(base + "/creditos/", wait_until="networkidle")
-            page.screenshot(path=str(CAP / "pt-dark-creditos-1024.png"), full_page=True)
+            for pag, nome in [
+                ("/creditos/", "pt-dark-creditos-1024.png"),
+                ("/privacidade/", "pt-dark-privacidade-1024.png"),
+                ("/en/privacidade/", "en-dark-privacidade-1024.png"),
+            ]:
+                page.goto(base + pag, wait_until="networkidle")
+                page.screenshot(path=str(CAP / nome), full_page=True)
+                relatorio["capturas"].append(nome)
             ctx.close()
             browser.close()
     finally:
         srv.terminate()
 
-    # 4) folha: quatro larguras no escuro, lado a lado, escala 0,5 (390 em 0,7 para ler)
+    # 4) folhas: por página, quatro larguras no escuro, lado a lado, escala 0,5 (390 em 0,7 para ler)
     escalas = {1440: 0.5, 1024: 0.5, 768: 0.5, 390: 0.7}
-    ims = []
-    for w in LARGURAS:
-        im = Image.open(CAP / f"pt-dark-{w}.png").convert("RGB")
-        s = escalas[w]
-        ims.append((w, im.resize((int(im.width * s), int(im.height * s)), Image.LANCZOS)))
-    gap, topo = 40, 56
-    W = sum(i.width for _, i in ims) + gap * (len(ims) + 1)
-    H = max(i.height for _, i in ims) + topo + gap
-    folha = Image.new("RGB", (W, H), "#0b0b09")
-    d = ImageDraw.Draw(folha)
-    x = gap
-    for w, im in ims:
-        d.text((x, 18), f"{w} px  (tema escuro, {int(escalas[w]*100)} %)", fill="#b3aca0")
-        folha.paste(im, (x, topo))
-        d.rectangle([x - 1, topo - 1, x + im.width, topo + im.height], outline="#33302a")
-        x += im.width + gap
-    folha.save(RAIZ / "folha-apresentacao.png")
-    relatorio["folha"] = str(RAIZ / "folha-apresentacao.png")
+    relatorio["folhas"] = []
+    for pag in PAGINAS:
+        prefixo = PREFIXO[pag]
+        ims = []
+        for w in LARGURAS:
+            im = Image.open(CAP / f"{prefixo}-dark-{w}.png").convert("RGB")
+            s = escalas[w]
+            ims.append((w, im.resize((int(im.width * s), int(im.height * s)), Image.LANCZOS)))
+        gap, topo = 40, 56
+        W = sum(i.width for _, i in ims) + gap * (len(ims) + 1)
+        H = max(i.height for _, i in ims) + topo + gap
+        folha = Image.new("RGB", (W, H), "#0b0b09")
+        d = ImageDraw.Draw(folha)
+        x = gap
+        for w, im in ims:
+            d.text((x, 18), f"{pag}  {w} px  (tema escuro, {int(escalas[w]*100)} %)", fill="#b3aca0")
+            folha.paste(im, (x, topo))
+            d.rectangle([x - 1, topo - 1, x + im.width, topo + im.height], outline="#33302a")
+            x += im.width + gap
+        folha.save(CAP / FOLHA[prefixo])
+        relatorio["folhas"].append(str(CAP / FOLHA[prefixo]))
 
     (CAP / "relatorio-captura.json").write_text(json.dumps(relatorio, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps({k: relatorio[k] for k in ("rede", "fonte", "video")}, indent=2, ensure_ascii=False))
-    print("capturas:", len(relatorio["capturas"]), "| folha:", relatorio["folha"])
-    return 0
+    print("capturas:", len(relatorio["capturas"]), "| folhas:", ", ".join(relatorio["folhas"]))
+    for f in relatorio["falhas"]:
+        print("FAIL", f)
+    print("RESULTADO:", "FAIL" if relatorio["falhas"] else "PASS")
+    return 1 if relatorio["falhas"] else 0
 
 
 if __name__ == "__main__":

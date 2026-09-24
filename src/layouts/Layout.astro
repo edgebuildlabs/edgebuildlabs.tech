@@ -4,7 +4,7 @@ import '../assets/css/global.css'
 import HeaderMain from '../components/HeaderMain.astro'
 import FooterMain from '../components/FooterMain.astro'
 
-const { t, title, description, path, altPath, alternativas = true, og } = Astro.props
+const { t, title, description, path, altPath, alternativas = true, og, nav } = Astro.props
 // og opcional: { imagem, largura, altura, tipo, alt } para página com imagem própria (ex.: /livro/)
 const ogImagem = og ? og.imagem : '/og-2048x1152.png'
 const ogAlt = og ? og.alt : t.meta.imagemAlt
@@ -73,7 +73,7 @@ const enHref = site + (isEn ? path : altPath)
       {isEn ? 'Skip to content' : 'Pular para o conteúdo'}
     </a>
 
-    <HeaderMain t={t} altPath={altPath} />
+    <HeaderMain t={t} altPath={altPath} nav={nav} />
 
     <main id="conteudo" class="flex-1">
       <slot />

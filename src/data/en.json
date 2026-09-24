@@ -16,7 +16,9 @@
   "heroi": {
     "linha1": "Built by AI agents.",
     "linha2": "Verified before delivery.",
+    "oferta": "Video for people who post on social media and YouTube: short vertical and long-form narrated, faceless. Automation with AI agents for people who need routines that run on their own and leave a receipt.",
     "sub": "Evandro Henn — one person, in Brazil, full time, with a fleet of agents on his own server.",
+    "video": { "rotulo": "Video page, in Portuguese", "href": "/video/", "hreflang": "pt-BR" },
     "cta": "See what is already built",
     "ctaHref": "#prova"
   },
@@ -32,7 +34,8 @@
           "Script from your brief, or editing from the script you bring",
           "One revision round on the pilot, two after that",
           "First cut in 3 calendar days for short, 5 for long-form, from the brief"
-        ]
+        ],
+        "link": { "texto": "Deadlines, prices and samples (page in Portuguese)", "href": "/video/", "hreflang": "pt-BR" }
       },
       {
         "titulo": "Automation and agents with evidence",
@@ -121,13 +124,13 @@
   },
   "contato": {
     "kicker": "Contact",
-    "titulo": "Say by e-mail what you need and by when. In writing, no calls.",
+    "titulo": "Say by e-mail or WhatsApp what you need and by when. In writing, no calls.",
     "quem": "The brief is read, answered and signed off by Evandro Henn.",
     "itens": [
       { "rotulo": "E-mail", "valor": "contato@edgebuildlabs.tech", "href": "mailto:contato@edgebuildlabs.tech" },
+      { "rotulo": "WhatsApp", "valor": "send a message, no calls", "whatsapp": "Hi, I came from the Edge Build Labs website." },
       { "rotulo": "X", "valor": "@EdgeBuildLabs", "href": "https://x.com/EdgeBuildLabs" },
-      { "rotulo": "YouTube", "valor": "youtube.com/@edgebuildlabs", "href": "https://www.youtube.com/@edgebuildlabs" },
-      { "rotulo": "Technical client", "valor": "open an issue on the repository", "href": "https://github.com/edgebuildlabs/evidence-contracts/issues" }
+      { "rotulo": "YouTube", "valor": "youtube.com/@edgebuildlabs", "href": "https://www.youtube.com/@edgebuildlabs" }
     ]
   },
   "rodape": {
@@ -179,7 +182,7 @@
       },
       {
         "titulo": "E-mail you send us",
-        "html": "Messages sent to <a href=\"mailto:contato@edgebuildlabs.tech\">contato@edgebuildlabs.tech</a> are read in order to be answered, with the help of the tool described below. They are not added to any mailing list and are not used for advertising."
+        "html": "Messages sent to <a href=\"mailto:contato@edgebuildlabs.tech\">contato@edgebuildlabs.tech</a> are read in order to be answered, with the help of the tool described below. They are not added to any mailing list and are not used for advertising. WhatsApp messages follow the same rule: read in order to be answered, not added to any mailing list, not used for advertising."
       },
       {
         "titulo": "Internal e-mail tool and Google data",
@@ -195,7 +198,7 @@
       },
       {
         "titulo": "Requests and revocation",
-        "html": "For any request about your data, write to <a href=\"mailto:contato@edgebuildlabs.tech\">contato@edgebuildlabs.tech</a>. The account holder can revoke the tool's access at any time in the <a href=\"https://myaccount.google.com/connections\">Google Account</a>. Last updated 23 September 2026."
+        "html": "For any request about your data, write to <a href=\"mailto:contato@edgebuildlabs.tech\">contato@edgebuildlabs.tech</a>. The account holder can revoke the tool's access at any time in the <a href=\"https://myaccount.google.com/connections\">Google Account</a>. Last updated 24 September 2026."
       }
     ]
   }

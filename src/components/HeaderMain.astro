@@ -3,7 +3,8 @@ import Simbolo from './Simbolo.astro'
 import Wordmark from './Wordmark.astro'
 import BotaoTema from './BotaoTema.astro'
 
-const { t, altPath } = Astro.props
+// nav opcional: página com seções próprias (ex.: /video/) passa as suas âncoras; sem ela, vale o menu da home.
+const { t, altPath, nav = t.nav } = Astro.props
 const home = t.lang === 'en' ? '/en/' : '/'
 ---
 
@@ -15,7 +16,7 @@ const home = t.lang === 'en' ? '/en/' : '/'
   </a>
 
   <nav class="hidden md:flex items-center gap-7 text-[0.95rem]" aria-label={t.lang === 'en' ? 'Sections' : 'Seções'}>
-    {t.nav.map((item) => <a class="nav-link" href={item.href}>{item.rotulo}</a>)}
+    {nav.map((item) => <a class="nav-link" href={item.href}>{item.rotulo}</a>)}
   </nav>
 
   <div class="flex items-center gap-2">

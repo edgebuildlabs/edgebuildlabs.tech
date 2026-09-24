@@ -1,0 +1,387 @@
+---
+import Layout from '../layouts/Layout.astro'
+import VideoLite from '../components/VideoLite.astro'
+import t from '../data/pt.json'
+import { linkWhatsApp } from '../data/whatsapp.js'
+import posterExplicativo from '../assets/posters/explicativo-20s.jpg'
+import posterAnuncio from '../assets/posters/anuncio-32s.jpg'
+import posterDemoBruto from '../assets/posters/demo-bruto-34s.jpg'
+import posterDocumentario from '../assets/posters/documentario-16min.jpg'
+
+// Página só em português: quem compra vídeo da operação é brasileiro. O EN do cabeçalho leva à página inicial em inglês.
+// Oferta, prazos e preço de entrada: tabela de preço do dono, coluna "direto" (linha curta 18/09/2026, longa 22/09/2026).
+// Só estes dois números de preço entram no site; avulsa, pacote, urgência, roteiro escrito aqui e minuto a mais saem na
+// proposta. Preço e prazo moram só aqui: o resumo do topo e os cartões saem deste objeto.
+const linhas = [
+  {
+    kicker: 'Linha curta',
+    titulo: 'Vídeo curto, vertical',
+    resumo: 'Curto vertical, até 60 s',
+    medida: 'Até 60 segundos, no formato da rede.',
+    texto: [
+      'Narração, trilha, efeitos, texto na tela e legenda. Se você tem material gravado, a edição é em cima dele; se não tem, o vídeo sai de imagem licenciada e gráfico, a partir do tema.',
+      'Entrega em MP4, para usar nas suas redes e em anúncios online.',
+    ],
+    preco: 'R$ 197',
+    piloto: '1 vídeo de até 60 s',
+    ficha: [
+      { rotulo: 'Primeira versão', valor: '<strong>em até 3 dias corridos</strong>, contados do briefing completo' },
+      { rotulo: 'Versão final', valor: '<strong>1 dia</strong> depois da sua lista de ajustes' },
+      { rotulo: 'Ajustes', valor: '<strong>1 rodada</strong> no piloto; 2 nas peças seguintes' },
+    ],
+  },
+  {
+    kicker: 'Linha longa',
+    titulo: 'Vídeo longo, narrado, sem rosto',
+    resumo: 'Longo narrado, sem rosto, de 10 a 20 min',
+    medida: 'De 10 a 20 minutos, em 16:9, pronto para o YouTube.',
+    texto: [
+      'Narração em português a partir do seu roteiro, imagens e cenas que acompanham a narração, texto na tela, trilha, legendas e capa. Sem roteiro, dá para escrever aqui, com pesquisa e fontes na tela, por um preço à parte.',
+      'Entrega em MP4, para usar no seu canal e nas suas redes.',
+    ],
+    preco: 'R$ 317',
+    piloto: '1 vídeo de até 15 min',
+    ficha: [
+      { rotulo: 'Primeira versão', valor: '<strong>em até 5 dias corridos</strong>, contados do briefing completo' },
+      { rotulo: 'Versão final', valor: '<strong>2 dias</strong> depois da sua lista de ajustes' },
+      { rotulo: 'Ajustes', valor: '<strong>1 rodada</strong> no piloto; 2 nas peças seguintes' },
+    ],
+  },
+]
+
+// O que mandar no primeiro contato: do "Como funciona" dos dois modelos de proposta.
+const mandar = [
+  {
+    titulo: 'Vídeo curto',
+    itens: ['O tema', 'Uma referência de estilo', 'O material gravado, se tiver', 'Onde vai publicar', 'Para quando'],
+  },
+  {
+    titulo: 'Vídeo longo',
+    itens: ['O roteiro, ou o tema e uma referência de canal', 'Para quando'],
+  },
+]
+
+// Os vídeos são os mesmos da seção Prova da home, com a mesma legenda (pt.json) e o mesmo player que só chama o
+// YouTube depois do clique. Aqui, agrupados por linha.
+const posterPorId = {
+  'z09-YYVPqCE': posterExplicativo,
+  'aU_iT-dYK-4': posterAnuncio,
+  'G5l2Bn3m8us': posterDemoBruto,
+  '1ahON1FZ8zw': posterDocumentario,
+}
+const exemplo = (id) => ({ ...t.prova.videos.find((v) => v.id === id), poster: posterPorId[id] })
+const curtos = ['G5l2Bn3m8us', 'aU_iT-dYK-4', 'z09-YYVPqCE'].map(exemplo)
+const longo = exemplo('1ahON1FZ8zw')
+
+// Contato: o e-mail e a mensagem pronta do WhatsApp vêm do contato da home; o número, de src/data/whatsapp.js.
+const email = t.contato.itens.find((i) => i.href && i.href.startsWith('mailto:'))
+const whatsapp = linkWhatsApp(t.contato.itens.find((i) => i.whatsapp).whatsapp)
+
+const nav = [
+  { rotulo: 'Linhas', href: '#linhas' },
+  { rotulo: 'Exemplos', href: '#exemplos' },
+  { rotulo: 'Pedir', href: '#pedir' },
+]
+---
+
+<Layout
+  t={t}
+  title="Vídeo para redes e YouTube — Edge Build Labs"
+  description="Vídeo curto vertical de até 60 s, a partir de R$ 197, e vídeo longo narrado sem rosto, de 10 a 20 min, a partir de R$ 317. Prazo e rodadas por escrito. Feito por Evandro Henn, no Brasil."
+  path="/video/"
+  altPath="/en/"
+  alternativas={false}
+  nav={nav}
+>
+  <section class="secao sala-topo">
+    <div class="wrap">
+      <h1 class="t-display">
+        Vídeo curto para as redes.<br />
+        <span class="t-acento">Vídeo longo para o YouTube.</span>
+      </h1>
+
+      <dl class="sala-precos mt-8 md:mt-10">
+        {
+          linhas.map((l) => (
+            <div class="sala-preco">
+              <dt>{l.resumo}</dt>
+              <dd>
+                a partir de <strong>{l.preco}</strong>
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <p class="sala-quem mt-6">
+        Quem lê o briefing, responde e confere a entrega antes de enviar é Evandro Henn — uma pessoa, no Brasil.
+      </p>
+
+      <div class="sala-acoes mt-8">
+        <a class="btn" href="#pedir">
+          Pedir um vídeo
+          <span class="seta" aria-hidden="true">↓</span>
+        </a>
+        <a class="btn btn-ghost" href="#exemplos">
+          Ver exemplos
+          <span class="seta" aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="linhas">
+    <div class="wrap">
+      <p class="t-kicker">Duas linhas</p>
+      <h2 class="t-h2 mt-3">O que entra, em quanto tempo, por quanto.</h2>
+      <p class="t-lead mt-4 max-w-[44ch]">
+        O piloto é o primeiro vídeo. Escopo, prazo e preço se fecham por escrito, antes de começar.
+      </p>
+
+      <div class="mt-10 md:mt-14 grid gap-5 md:grid-cols-2 md:gap-6 items-stretch">
+        {
+          linhas.map((l) => (
+            <article class="cartao">
+              <p class="t-kicker">{l.kicker}</p>
+              <h3 class="t-h3">{l.titulo}</h3>
+              <p class="linha-medida">{l.medida}</p>
+              {l.texto.map((p) => (
+                <p class="t-corpo">{p}</p>
+              ))}
+
+              <div class="ficha">
+                <p class="t-kicker ficha-kicker">Piloto</p>
+                <p class="preco">
+                  a partir de <strong>{l.preco}</strong>
+                </p>
+                <p class="preco-nota">{l.piloto}</p>
+                <dl class="ficha-linhas">
+                  {l.ficha.map((f) => (
+                    <div class="ficha-linha">
+                      <dt>{f.rotulo}</dt>
+                      <dd set:html={f.valor} />
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <p class="t-corpo mt-6">
+        Peça avulsa, pacote, urgência, roteiro escrito aqui e minuto além dos 15: preço na proposta.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao" id="exemplos">
+    <div class="wrap">
+      <p class="t-kicker">Exemplos</p>
+      <h2 class="t-h2 mt-3">Quatro peças feitas aqui.</h2>
+      <p class="t-lead mt-4 max-w-[40ch]">Peças próprias, sem cliente. As narrações são sintéticas.</p>
+
+      <h3 class="t-h3 mt-10 md:mt-14">Curtos</h3>
+      <div class="mt-6 grid gap-8 md:grid-cols-2 lg:grid-cols-3 md:gap-6">
+        {
+          curtos.map((v) => (
+            <VideoLite
+              id={v.id}
+              titulo={v.titulo}
+              texto={v.texto}
+              poster={v.poster}
+              reproduzir={t.prova.reproduzir}
+              aviso={t.prova.videoAviso}
+            />
+          ))
+        }
+      </div>
+
+      <h3 class="t-h3 mt-12 md:mt-16">Longo</h3>
+      <div class="exemplo-longo mt-6">
+        <VideoLite
+          id={longo.id}
+          titulo={longo.titulo}
+          texto={longo.texto}
+          poster={longo.poster}
+          reproduzir={t.prova.reproduzir}
+          aviso={t.prova.videoAviso}
+        />
+      </div>
+
+      <p class="t-small mt-6 text-tinta-fraca">{t.prova.videoAviso}</p>
+    </div>
+  </section>
+
+  <section class="secao" id="pedir">
+    <div class="wrap">
+      <p class="t-kicker">Para pedir</p>
+      <h2 class="t-h2 mt-3">O que mandar na primeira mensagem.</h2>
+
+      <div class="mt-10 md:mt-14 grid gap-5 md:grid-cols-2 md:gap-6 items-start">
+        {
+          mandar.map((m) => (
+            <article class="cartao">
+              <h3 class="t-h3">{m.titulo}</h3>
+              <ul>
+                {m.itens.map((i) => (
+                  <li>{i}</li>
+                ))}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+
+      <p class="t-h3 mt-12 md:mt-16">Por WhatsApp ou e-mail. Por escrito, sem ligação.</p>
+      <div class="sala-acoes mt-6">
+        <a class="btn" href={whatsapp} rel="noopener">
+          Mandar mensagem no WhatsApp
+          <span class="seta" aria-hidden="true">→</span>
+        </a>
+        <a class="btn btn-ghost" href={email.href}>{email.valor}</a>
+      </div>
+
+      <a class="link-seta voltar mt-16 block" href="/">
+        <span class="seta" aria-hidden="true">←</span>
+        Voltar ao início
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Topo mais curto que uma seção comum, como o herói da home: o preço aparece na primeira tela. */
+  .sala-topo {
+    padding-top: clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  .sala-precos {
+    display: grid;
+    max-width: 42rem;
+    border-bottom: 1px solid var(--ebl-regua);
+  }
+
+  .sala-preco {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.15rem 1.5rem;
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--ebl-regua);
+  }
+
+  .sala-preco dt {
+    font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+    line-height: 1.35;
+  }
+
+  .sala-preco dd {
+    margin: 0;
+    color: var(--ebl-tinta-suave);
+    white-space: nowrap;
+  }
+
+  .sala-preco dd strong {
+    font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.75rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ebl-tinta);
+  }
+
+  .sala-quem {
+    color: var(--ebl-tinta-suave);
+    max-width: 46ch;
+    text-wrap: pretty;
+  }
+
+  .sala-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .linha-medida {
+    color: var(--ebl-tinta);
+    margin: 0;
+  }
+
+  /* A ficha do piloto desce para o pé do cartão: nas duas linhas, preço e prazos ficam lado a lado. */
+  .ficha {
+    margin-top: auto;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--ebl-regua);
+    display: grid;
+    gap: 0.3rem;
+  }
+
+  .ficha-kicker {
+    color: var(--ebl-acento);
+  }
+
+  .preco {
+    margin: 0;
+    color: var(--ebl-tinta-suave);
+  }
+
+  .preco strong {
+    font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.5rem);
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ebl-tinta);
+  }
+
+  .preco-nota {
+    margin: 0;
+    color: var(--ebl-tinta-suave);
+  }
+
+  .ficha-linhas {
+    margin: 0.9rem 0 0;
+    display: grid;
+  }
+
+  .ficha-linha {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--ebl-regua);
+  }
+
+  .ficha-linha dt {
+    font-family: var(--ebl-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ebl-tinta-suave);
+  }
+
+  .ficha-linha dd {
+    margin: 0;
+    color: var(--ebl-tinta-suave);
+    text-wrap: pretty;
+  }
+
+  .ficha-linha dd :global(strong) {
+    color: var(--ebl-tinta);
+    font-weight: 600;
+  }
+
+  @media (min-width: 64rem) {
+    .ficha-linha {
+      grid-template-columns: 9.5rem minmax(0, 1fr);
+      gap: 1rem;
+      align-items: baseline;
+    }
+  }
+
+  .exemplo-longo {
+    max-width: 48rem;
+  }
+
+  .voltar:hover .seta {
+    transform: translateX(-0.3em);
+  }
+</style>
