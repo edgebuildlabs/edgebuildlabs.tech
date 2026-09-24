@@ -69,7 +69,17 @@ const posterPorId = {
   'G5l2Bn3m8us': posterDemoBruto,
   '1ahON1FZ8zw': posterDocumentario,
 }
-const exemplo = (id) => ({ ...t.prova.videos.find((v) => v.id === id), poster: posterPorId[id] })
+// Legenda própria desta página, sem jargão de produção: quem chega aqui quer vídeo, não o nome da ferramenta (leitor
+// frio de 24/09). Os fatos são os mesmos da legenda da home; o documentário já estava em linguagem simples.
+const legendaAqui = {
+  'G5l2Bn3m8us': 'Do material gravado ao vídeo pronto: cortes no ritmo da fala, legendas, efeitos sonoros e trilha licenciada, em formato vertical. Imagens de banco e narração sintética.',
+  'aU_iT-dYK-4': 'Anúncio de um servidor de jogo online: telas reais do site e a arte dele, texto animado e narração sintética. Sem imagem gerada por IA e sem pessoa real.',
+  'z09-YYVPqCE': 'Vídeo explicativo curto: roteiro, narração e montagem feitos com agentes de IA.',
+}
+const exemplo = (id) => {
+  const v = t.prova.videos.find((x) => x.id === id)
+  return { ...v, texto: legendaAqui[id] ?? v.texto, poster: posterPorId[id] }
+}
 const curtos = ['G5l2Bn3m8us', 'aU_iT-dYK-4', 'z09-YYVPqCE'].map(exemplo)
 const longo = exemplo('1ahON1FZ8zw')
 
@@ -87,7 +97,7 @@ const nav = [
 <Layout
   t={t}
   title="Vídeo para redes e YouTube — Edge Build Labs"
-  description="Vídeo curto vertical de até 60 s, a partir de R$ 197, e vídeo longo narrado sem rosto, de 10 a 20 min, a partir de R$ 317. Prazo e rodadas por escrito. Feito por Evandro Henn, no Brasil."
+  description="Vídeo curto vertical de até 60 s, a partir de R$ 197, e vídeo longo narrado sem rosto, de 10 a 20 min, a partir de R$ 317. Prazo e rodadas por escrito. Feito com agentes de IA e conferido por Evandro Henn, no Brasil."
   path="/video/"
   altPath="/en/"
   alternativas={false}
@@ -114,7 +124,8 @@ const nav = [
       </dl>
 
       <p class="sala-quem mt-6">
-        Quem lê o briefing, responde e confere a entrega antes de enviar é Evandro Henn — uma pessoa, no Brasil.
+        Feito com agentes de IA. Quem lê o briefing, responde e confere cada entrega antes de enviar é Evandro Henn — uma
+        pessoa, no Brasil.
       </p>
 
       <div class="sala-acoes mt-8">
@@ -136,7 +147,7 @@ const nav = [
       <h2 class="t-h2 mt-3">O que entra, em quanto tempo, por quanto.</h2>
       <p class="t-lead mt-4 max-w-[44ch]">
         O piloto é o primeiro vídeo. Escopo, prazo e preço se fecham por escrito, antes de começar. A narração feita aqui usa voz
-        sintética.
+        sintética: dá para ouvir nos exemplos abaixo.
       </p>
 
       <div class="mt-10 md:mt-14 grid gap-5 md:grid-cols-2 md:gap-6 items-stretch">
