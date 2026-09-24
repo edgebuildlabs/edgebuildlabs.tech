@@ -10,8 +10,9 @@ import posterDocumentario from '../assets/posters/documentario-16min.jpg'
 
 // Página só em português: quem compra vídeo da operação é brasileiro. O EN do cabeçalho leva à página inicial em inglês.
 // Oferta, prazos e preço de entrada: tabela de preço do dono, coluna "direto" (linha curta 18/09/2026, longa 22/09/2026).
-// Só estes dois números de preço entram no site; avulsa, pacote, urgência, roteiro escrito aqui e minuto a mais saem na
-// proposta. Preço e prazo moram só aqui: o resumo do topo e os cartões saem deste objeto.
+// Entram no site o piloto e o vídeo seguinte de cada linha (decisão do dono, 24/09/2026: o leitor frio leu o preço de entrada
+// sozinho como isca); pacote, urgência, roteiro escrito aqui e minuto a mais saem na proposta. A tabela do dono continua dona
+// desses números: mudou lá, muda aqui. Preço e prazo moram só aqui: o resumo do topo e os cartões saem deste objeto.
 const linhas = [
   {
     kicker: 'Linha curta',
@@ -23,11 +24,13 @@ const linhas = [
       'Entrega em MP4, para usar nas suas redes e em anúncios online.',
     ],
     preco: 'R$ 197',
+    seguinte: 'R$ 260',
     piloto: '1 vídeo de até 60 s',
     ficha: [
       { rotulo: 'Primeira versão', valor: '<strong>em até 3 dias corridos</strong>, contados do briefing completo' },
       { rotulo: 'Versão final', valor: '<strong>1 dia</strong> depois da sua lista de ajustes' },
-      { rotulo: 'Ajustes', valor: '<strong>1 rodada</strong> no piloto; 2 nas peças seguintes' },
+      { rotulo: 'Ajustes', valor: '<strong>1 rodada</strong> no piloto' },
+      { rotulo: 'Vídeos seguintes', valor: '<strong>R$ 260</strong> cada, com 2 rodadas' },
     ],
   },
   {
@@ -40,11 +43,13 @@ const linhas = [
       'Entrega em MP4, para usar no seu canal e nas suas redes.',
     ],
     preco: 'R$ 317',
+    seguinte: 'R$ 397',
     piloto: '1 vídeo de até 15 min',
     ficha: [
       { rotulo: 'Primeira versão', valor: '<strong>em até 5 dias corridos</strong>, contados do briefing completo' },
       { rotulo: 'Versão final', valor: '<strong>2 dias</strong> depois da sua lista de ajustes' },
-      { rotulo: 'Ajustes', valor: '<strong>1 rodada</strong> no piloto; 2 nas peças seguintes' },
+      { rotulo: 'Ajustes', valor: '<strong>1 rodada</strong> no piloto' },
+      { rotulo: 'Vídeos seguintes', valor: '<strong>R$ 397</strong> cada, até 15 min, com 2 rodadas' },
     ],
   },
 ]
@@ -116,7 +121,7 @@ const nav = [
             <div class="sala-preco">
               <dt>{l.resumo}</dt>
               <dd>
-                a partir de <strong>{l.preco}</strong>
+                a partir de <strong>{l.preco}</strong> no primeiro vídeo, {l.seguinte} nos seguintes
               </dd>
             </div>
           ))
@@ -182,7 +187,7 @@ const nav = [
       </div>
 
       <p class="t-corpo mt-6">
-        Peça avulsa, pacote, urgência, roteiro escrito aqui e minuto além dos 15: preço na proposta.
+        Pacote mensal, urgência, roteiro escrito aqui e minuto além dos 15: preço na proposta.
       </p>
     </div>
   </section>
