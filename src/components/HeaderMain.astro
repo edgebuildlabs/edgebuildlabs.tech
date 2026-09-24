@@ -4,8 +4,11 @@ import Wordmark from './Wordmark.astro'
 import BotaoTema from './BotaoTema.astro'
 
 // nav opcional: página com seções próprias (ex.: /video/) passa as suas âncoras; sem ela, vale o menu da home.
-const { t, altPath, nav = t.nav } = Astro.props
+const { t, altPath, nav: navPagina } = Astro.props
 const home = t.lang === 'en' ? '/en/' : '/'
+// O menu da home aponta para âncoras que só existem nela: fora dela (livro, créditos, privacidade), o link leva à seção na home.
+const naHome = Astro.url.pathname === home
+const nav = navPagina ?? t.nav.map((item) => (!naHome && item.href.startsWith('#') ? { ...item, href: home + item.href } : item))
 ---
 
 <header class="wrap py-6 md:py-8 flex items-center justify-between gap-6">
