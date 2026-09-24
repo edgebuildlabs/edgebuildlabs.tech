@@ -140,7 +140,8 @@
       { "rotulo": "Book (PT)", "href": "/livro/" },
       { "rotulo": "Living World", "href": "https://livingworld.edgebuildlabs.tech/" },
       { "rotulo": "Thesis site", "href": "https://edgebuildlabs.github.io/" },
-      { "rotulo": "Credits", "href": "/en/creditos/" }
+      { "rotulo": "Credits", "href": "/en/creditos/" },
+      { "rotulo": "Privacy", "href": "/en/privacidade/" }
     ],
     "topo": "Back to top"
   },
@@ -164,6 +165,37 @@
       {
         "titulo": "Everything else",
         "html": "Symbol, wordmark, copy and videos are Edge Build Labs' own. The video covers are frames from the videos themselves. The player loads from YouTube (<span class=\"t-mono\">youtube-nocookie.com</span>) only after you click; until then nothing leaves this server."
+      }
+    ]
+  },
+  "privacidade": {
+    "titulo": "Privacy policy",
+    "meta": "Edge Build Labs privacy policy: the site, the contact e-mail and the internal tool that uses Google data.",
+    "voltar": "Back to the start",
+    "blocos": [
+      {
+        "titulo": "This site",
+        "html": "No trackers, no cookies, no forms. The YouTube player loads only after you click (see <a href=\"/en/creditos/\">Credits</a>)."
+      },
+      {
+        "titulo": "E-mail you send us",
+        "html": "Messages sent to <a href=\"mailto:contato@edgebuildlabs.tech\">contato@edgebuildlabs.tech</a> are read in order to be answered, with the help of the tool described below. They are not added to any mailing list and are not used for advertising."
+      },
+      {
+        "titulo": "Internal e-mail tool and Google data",
+        "html": "The operation uses an internal tool, used only by the person who runs it, that accesses the operation's own mailbox through the Gmail API, with the account holder's permission. It reads messages (sender, subject, date, body and attachments) to build a summary of what arrived and, on request, to download an attachment or trigger the unsubscribe link the sender itself publishes. A backup function can create drafts, mark messages as read and apply labels; nothing is sent without the explicit approval of the person who runs the operation, one message at a time. The tool is not offered to the public and does not access anyone else's account."
+      },
+      {
+        "titulo": "Where the data stays and who it is shared with",
+        "html": "On the operation's computer; each reading replaces the previous summary. The only third party is the AI assistant the operation uses (currently Claude, by Anthropic), which reads the summary to help answer, on an account set not to use conversations for model training. We do not sell this data, do not use it for advertising or credit decisions, and do not use it to develop, improve or train generalized AI models."
+      },
+      {
+        "titulo": "Limited Use",
+        "html": "The use and transfer to any other app of information received from Google APIs will adhere to the <a href=\"https://developers.google.com/terms/api-services-user-data-policy\">Google API Services User Data Policy</a>, including the Limited Use requirements."
+      },
+      {
+        "titulo": "Requests and revocation",
+        "html": "For any request about your data, write to <a href=\"mailto:contato@edgebuildlabs.tech\">contato@edgebuildlabs.tech</a>. The account holder can revoke the tool's access at any time in the <a href=\"https://myaccount.google.com/connections\">Google Account</a>. Last updated 23 September 2026."
       }
     ]
   }

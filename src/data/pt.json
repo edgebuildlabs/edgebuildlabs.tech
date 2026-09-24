@@ -140,7 +140,8 @@
       { "rotulo": "Livro", "href": "/livro/" },
       { "rotulo": "Living World", "href": "https://livingworld.edgebuildlabs.tech/" },
       { "rotulo": "Site da tese (EN)", "href": "https://edgebuildlabs.github.io/" },
-      { "rotulo": "Créditos", "href": "/creditos/" }
+      { "rotulo": "Créditos", "href": "/creditos/" },
+      { "rotulo": "Privacidade", "href": "/privacidade/" }
     ],
     "topo": "Voltar ao topo"
   },
@@ -164,6 +165,37 @@
       {
         "titulo": "O resto",
         "html": "Símbolo, wordmark, textos e vídeos são da Edge Build Labs. As imagens de capa dos vídeos são quadros dos próprios vídeos. O player só carrega do YouTube (<span class=\"t-mono\">youtube-nocookie.com</span>) depois do clique; até lá, nada sai deste servidor."
+      }
+    ]
+  },
+  "privacidade": {
+    "titulo": "Política de privacidade",
+    "meta": "Política de privacidade da Edge Build Labs: o site, o e-mail de contato e a ferramenta interna que usa dados do Google.",
+    "voltar": "Voltar ao início",
+    "blocos": [
+      {
+        "titulo": "Este site",
+        "html": "Não usa rastreador, cookie nem formulário. O player do YouTube só carrega depois do clique (ver <a href=\"/creditos/\">Créditos</a>)."
+      },
+      {
+        "titulo": "E-mail que você nos envia",
+        "html": "Mensagens enviadas a <a href=\"mailto:contato@edgebuildlabs.tech\">contato@edgebuildlabs.tech</a> são lidas para serem respondidas, com a ajuda da ferramenta descrita abaixo. Não entram em lista de envio e não são usadas para publicidade."
+      },
+      {
+        "titulo": "Ferramenta interna de e-mail e dados do Google",
+        "html": "A operação usa uma ferramenta interna, de uso exclusivo do responsável, que acessa pela API do Gmail a caixa de e-mail da própria operação, com a permissão do titular da conta. Ela lê as mensagens (remetente, assunto, data, texto e anexos) para montar um resumo do que chegou e, a pedido, baixar um anexo ou acionar o link de descadastro que o próprio remetente publica. Uma função de reserva pode criar rascunhos, marcar mensagens como lidas e aplicar rótulos; nada é enviado sem aprovação do responsável, uma mensagem por vez. A ferramenta não é oferecida ao público e não acessa a conta de mais ninguém."
+      },
+      {
+        "titulo": "Onde os dados ficam e com quem compartilhamos",
+        "html": "No computador da operação; cada leitura substitui o resumo anterior. O único terceiro é o assistente de IA usado pela operação (hoje, o Claude, da Anthropic), que lê o resumo para ajudar a responder, numa conta configurada para não usar as conversas no treino de modelos. Não vendemos esses dados, não os usamos para publicidade nem para decisões de crédito, e não os usamos para desenvolver, melhorar ou treinar modelos de IA de uso geral."
+      },
+      {
+        "titulo": "Uso Limitado",
+        "html": "O uso e a transferência, para qualquer outro aplicativo, de informações recebidas das APIs do Google seguem a <a href=\"https://developers.google.com/terms/api-services-user-data-policy\">Política de Dados do Usuário dos Serviços de API do Google</a>, incluindo os requisitos de Uso Limitado."
+      },
+      {
+        "titulo": "Pedidos e revogação",
+        "html": "Para qualquer pedido sobre dados seus, escreva para <a href=\"mailto:contato@edgebuildlabs.tech\">contato@edgebuildlabs.tech</a>. O titular da conta pode revogar o acesso da ferramenta a qualquer momento na <a href=\"https://myaccount.google.com/connections\">Conta Google</a>. Atualizada em 23/09/2026."
       }
     ]
   }

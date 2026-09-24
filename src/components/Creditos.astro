@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
 
-const { t, path, altPath } = Astro.props
-const c = t.creditos
+const { t, path, altPath, chave = 'creditos' } = Astro.props
+const c = t[chave]
 const home = t.lang === 'en' ? '/en/' : '/'
 ---
 
