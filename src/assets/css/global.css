@@ -256,6 +256,10 @@ a:hover { text-decoration-color: var(--ebl-acento); }
 
 .link-seta:hover { color: var(--ebl-acento); }
 
+/* Endereço em mono (github.com/edgebuildlabs/work-order-contract) quebra onde precisar: sem isso, no celular,
+   o cartão da Prova passa da largura da tela e a página rola de lado. */
+.link-seta .t-mono { overflow-wrap: anywhere; }
+
 /* ---------- utilitários ---------- */
 
 .sr-only {
