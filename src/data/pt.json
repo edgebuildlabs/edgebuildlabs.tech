@@ -76,7 +76,7 @@
     "itens": [
       {
         "titulo": "Living World",
-        "texto": "Servidor público de Ultima Online (era T2A, sobre ModernUO), no ar desde 05/09/2026 num único VPS. Container sem root, imagem fixada por digest, backup diário com restauração testada.",
+        "texto": "Servidor público de Ultima Online (era T2A, sobre ModernUO), no ar desde 05/09/2026 num único VPS: qualquer pessoa pode entrar e conferir. Por dentro, o que não dá para conferir daqui: contêiner sem root, imagem fixada por digest e backup diário.",
         "link": "livingworld.edgebuildlabs.tech",
         "href": "https://livingworld.edgebuildlabs.tech/"
       },
