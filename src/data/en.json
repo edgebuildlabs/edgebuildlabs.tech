@@ -79,7 +79,7 @@
     "itens": [
       {
         "titulo": "Living World",
-        "texto": "A public Ultima Online shard (T2A era, on ModernUO), running since 5 September 2026 on a single VPS: anyone can log in and check. On the inside, which you cannot check from here: rootless container, image pinned by digest, daily backup.",
+        "texto": "A public Ultima Online shard (T2A era, on ModernUO), running since 5 September 2026 on a single VPS. Rootless container, image pinned by digest, daily backup with a restore that was actually performed.",
         "link": "livingworld.edgebuildlabs.tech",
         "href": "https://livingworld.edgebuildlabs.tech/"
       },
