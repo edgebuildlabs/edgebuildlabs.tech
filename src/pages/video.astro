@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro'
 import VideoLite from '../components/VideoLite.astro'
 import t from '../data/pt.json'
 import { linkWhatsApp } from '../data/whatsapp.js'
-import posterExplicativo from '../assets/posters/explicativo-20s.jpg'
 import posterAnuncio from '../assets/posters/anuncio-32s.jpg'
 import posterDemoBruto from '../assets/posters/demo-bruto-34s.jpg'
 import posterDocumentario from '../assets/posters/documentario-peca2.jpg'
@@ -69,7 +68,6 @@ const mandar = [
 // Os vídeos são os mesmos da seção Prova da home, com a mesma legenda (pt.json) e o mesmo player que só chama o
 // YouTube depois do clique. Aqui, agrupados por linha.
 const posterPorId = {
-  'z09-YYVPqCE': posterExplicativo,
   'aU_iT-dYK-4': posterAnuncio,
   'G5l2Bn3m8us': posterDemoBruto,
   'vB3KXpVzXH4': posterDocumentario,
@@ -79,13 +77,14 @@ const posterPorId = {
 const legendaAqui = {
   'G5l2Bn3m8us': 'Do material gravado ao vídeo pronto: cortes no ritmo da fala, legendas, efeitos sonoros e trilha licenciada, em formato vertical. Imagens de banco e narração sintética.',
   'aU_iT-dYK-4': 'Anúncio de um servidor de jogo online: telas reais do site e a arte dele, texto animado e narração sintética. Sem imagem gerada por IA e sem pessoa real.',
-  'z09-YYVPqCE': 'Vídeo explicativo curto: roteiro, narração e montagem feitos com agentes de IA.',
 }
 const exemplo = (id) => {
   const v = t.prova.videos.find((x) => x.id === id)
   return { ...v, texto: legendaAqui[id] ?? v.texto, poster: posterPorId[id] }
 }
-const curtos = ['G5l2Bn3m8us', 'aU_iT-dYK-4', 'z09-YYVPqCE'].map(exemplo)
+// O explicativo de 20 s saiu em 25/09/2026 (decisão do dono): a vitrine é por vagas, uma por tipo de pedido, e ele não
+// ocupava vaga de pedido nenhum. Ficam a edição de bruto e o anúncio, que são os dois pedidos da linha curta.
+const curtos = ['G5l2Bn3m8us', 'aU_iT-dYK-4'].map(exemplo)
 // A peça longa entra pelo corte de vitrine (1 min, não listado no canal da marca), com a peça inteira no link abaixo
 // dele (vitrine por vagas, conversa com o dono em 25/09/2026). Desde 25/09 é a peça 2; a peça 1 saiu da frente.
 const longo = exemplo('vB3KXpVzXH4')
@@ -197,7 +196,7 @@ const nav = [
   <section class="secao" id="exemplos">
     <div class="wrap">
       <p class="t-kicker">Exemplos</p>
-      <h2 class="t-h2 mt-3">Quatro peças feitas aqui.</h2>
+      <h2 class="t-h2 mt-3">Três peças feitas aqui.</h2>
       <p class="t-lead mt-4 max-w-[40ch]">Peças próprias, sem cliente. As narrações são sintéticas.</p>
 
       <h3 class="t-h3 mt-10 md:mt-14">Curtos</h3>
