@@ -3,7 +3,9 @@ import { Image } from 'astro:assets'
 
 // Player "lite": até o clique só existe a capa (quadro do próprio vídeo, servido daqui)
 // e um botão. No clique, o script troca o quadro por um iframe do youtube-nocookie.com.
-const { id, titulo, texto, poster, reproduzir, aviso } = Astro.props
+// `link` e `linkRotulo` (opcionais): um link simples abaixo da legenda, para a peça longa cujo
+// exemplo é um trecho (o corte de vitrine) e que tem a peça inteira no canal.
+const { id, titulo, texto, poster, reproduzir, aviso, link, linkRotulo } = Astro.props
 ---
 
 <figure class="video" data-id={id} data-titulo={titulo}>
@@ -18,6 +20,12 @@ const { id, titulo, texto, poster, reproduzir, aviso } = Astro.props
   <figcaption>
     <strong class="video-titulo">{titulo}</strong>
     <span class="t-corpo video-texto block mt-1">{texto}</span>
+    {link && linkRotulo && (
+      <a class="link-seta video-link mt-2" href={link} rel="noopener">
+        <span>{linkRotulo}</span>
+        <span class="seta" aria-hidden="true">→</span>
+      </a>
+    )}
   </figcaption>
 </figure>
 

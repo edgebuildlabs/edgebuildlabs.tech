@@ -6,7 +6,7 @@ import { linkWhatsApp } from '../data/whatsapp.js'
 import posterExplicativo from '../assets/posters/explicativo-20s.jpg'
 import posterAnuncio from '../assets/posters/anuncio-32s.jpg'
 import posterDemoBruto from '../assets/posters/demo-bruto-34s.jpg'
-import posterDocumentario from '../assets/posters/documentario-16min.jpg'
+import posterDocumentario from '../assets/posters/documentario-peca2.jpg'
 
 // Página só em português: quem compra vídeo da operação é brasileiro. O EN do cabeçalho leva à página inicial em inglês.
 // Oferta, prazos e preço de entrada: tabela de preço do dono, coluna "direto" (linha curta 18/09/2026, longa 22/09/2026).
@@ -72,7 +72,7 @@ const posterPorId = {
   'z09-YYVPqCE': posterExplicativo,
   'aU_iT-dYK-4': posterAnuncio,
   'G5l2Bn3m8us': posterDemoBruto,
-  '1ahON1FZ8zw': posterDocumentario,
+  'vB3KXpVzXH4': posterDocumentario,
 }
 // Legenda própria desta página, sem jargão de produção: quem chega aqui quer vídeo, não o nome da ferramenta (leitor
 // frio de 24/09). Os fatos são os mesmos da legenda da home; o documentário já estava em linguagem simples.
@@ -86,7 +86,9 @@ const exemplo = (id) => {
   return { ...v, texto: legendaAqui[id] ?? v.texto, poster: posterPorId[id] }
 }
 const curtos = ['G5l2Bn3m8us', 'aU_iT-dYK-4', 'z09-YYVPqCE'].map(exemplo)
-const longo = exemplo('1ahON1FZ8zw')
+// A peça longa entra pelo corte de vitrine (1 min, não listado no canal da marca), com a peça inteira no link abaixo
+// dele (vitrine por vagas, conversa com o dono em 25/09/2026). Desde 25/09 é a peça 2; a peça 1 saiu da frente.
+const longo = exemplo('vB3KXpVzXH4')
 
 // Contato: o e-mail e a mensagem pronta do WhatsApp vêm do contato da home; o número, de src/data/whatsapp.js.
 const email = t.contato.itens.find((i) => i.href && i.href.startsWith('mailto:'))
@@ -223,6 +225,8 @@ const nav = [
           poster={longo.poster}
           reproduzir={t.prova.reproduzir}
           aviso={t.prova.videoAviso}
+          link={longo.link}
+          linkRotulo={longo.linkRotulo}
         />
       </div>
 

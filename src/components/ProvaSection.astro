@@ -3,7 +3,7 @@ import VideoLite from './VideoLite.astro'
 import posterExplicativo from '../assets/posters/explicativo-20s.jpg'
 import posterAnuncio from '../assets/posters/anuncio-32s.jpg'
 import posterDemoBruto from '../assets/posters/demo-bruto-34s.jpg'
-import posterDocumentario from '../assets/posters/documentario-16min.jpg'
+import posterDocumentario from '../assets/posters/documentario-peca2.jpg'
 
 const { t } = Astro.props
 const p = t.prova
@@ -22,7 +22,7 @@ const posters = [posterExplicativo, posterAnuncio, posterDemoBruto, posterDocume
     <div class="mt-10 md:mt-14 grid gap-8 md:grid-cols-2 md:gap-6">
       {
         p.videos.map((v, i) => (
-          <VideoLite id={v.id} titulo={v.titulo} texto={v.texto} poster={posters[i]} reproduzir={p.reproduzir} aviso={p.videoAviso} />
+          <VideoLite id={v.id} titulo={v.titulo} texto={v.texto} poster={posters[i]} reproduzir={p.reproduzir} aviso={p.videoAviso} link={v.link} linkRotulo={v.linkRotulo} />
         ))
       }
     </div>
