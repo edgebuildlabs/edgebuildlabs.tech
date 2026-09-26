@@ -14,9 +14,9 @@
   ],
   "tema": { "aria": "Toggle light and dark theme" },
   "heroi": {
-    "linha1": "Built by AI agents.",
+    "linha1": "Video for social media and YouTube.",
     "linha2": "Verified before delivery.",
-    "oferta": "Video for people who post on social media and YouTube: short vertical and long-form narrated, faceless. Automation with AI agents for people who need routines that run on their own and leave a receipt.",
+    "oferta": "Short vertical up to 60 seconds and long-form narrated, faceless, 10 to 20 minutes, built with AI agents and checked by one person before delivery. And automation with agents for people who need routines that run on their own and leave a receipt.",
     "sub": "Evandro Henn — one person, in Brazil, full time, with a fleet of agents on his own server.",
     "video": { "rotulo": "Video page, in Portuguese", "href": "/video/", "hreflang": "pt-BR" },
     "cta": "See what is already built",
@@ -68,9 +68,9 @@
       {
         "id": "vB3KXpVzXH4",
         "titulo": "Narrated documentary, 16 min: a 1-minute excerpt",
-        "texto": "One minute of a 16-minute documentary made here: script with the source on screen for every claim, voice-over, animated scenes, motion graphics, music and captions. Faceless. Own piece, no client. In Portuguese.",
+        "texto": "One minute of a 16-minute documentary made here: script with the source on screen for every claim, voice-over, animated scenes, motion graphics, music and captions. Faceless. Own piece, no client, published on Virae, Edge Build Labs' documentary channel. In Portuguese.",
         "link": "https://youtu.be/n4zROcS7grc",
-        "linkRotulo": "Watch the full piece (16 min)"
+        "linkRotulo": "Watch the full piece on Virae (16 min)"
       }
     ],
     "itens": [

@@ -14,9 +14,9 @@
   ],
   "tema": { "aria": "Alternar tema claro e escuro" },
   "heroi": {
-    "linha1": "Construído por agentes de IA.",
+    "linha1": "Vídeo para redes e YouTube.",
     "linha2": "Provado antes de entregue.",
-    "oferta": "Vídeo para quem publica nas redes e no YouTube: curto vertical e longo narrado sem rosto. Automação com agentes de IA para quem precisa de rotina que rode sozinha e deixe recibo.",
+    "oferta": "Curto vertical até 60 segundos e longo narrado sem rosto, de 10 a 20 minutos, feitos com agentes de IA e conferidos por uma pessoa antes de entregar. E automação com agentes para quem precisa de rotina que rode sozinha e deixe recibo.",
     "sub": "Evandro Henn — uma pessoa, no Brasil, em tempo integral, com uma frota de agentes num servidor próprio.",
     "video": { "rotulo": "Vídeo: prazo, preço e exemplos", "href": "/video/" },
     "cta": "Ver o que já está feito",
@@ -68,9 +68,9 @@
       {
         "id": "vB3KXpVzXH4",
         "titulo": "Documentário narrado, 16 min: trecho de 1 min",
-        "texto": "Um minuto de um documentário de 16 minutos feito aqui: roteiro com a fonte na tela a cada afirmação, narração, cenas animadas, gráficos em movimento, trilha e legendas. Sem rosto. Peça própria, sem cliente.",
+        "texto": "Um minuto de um documentário de 16 minutos feito aqui: roteiro com a fonte na tela a cada afirmação, narração, cenas animadas, gráficos em movimento, trilha e legendas. Sem rosto. Peça própria, sem cliente, publicada no Virae, o canal de documentários da Edge Build Labs.",
         "link": "https://youtu.be/n4zROcS7grc",
-        "linkRotulo": "Assistir à peça inteira (16 min)"
+        "linkRotulo": "Assistir à peça inteira no Virae (16 min)"
       }
     ],
     "itens": [
