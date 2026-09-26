@@ -97,6 +97,12 @@
         "texto": "Como se fala com um agente que roda numa máquina que você não controla, e como a entrega dele sobrevive à sessão: um repositório usado como canal, com o contrato dentro. Extraído de um canal que rodou seis dias com cinco agentes. Domínio público (CC0).",
         "link": "github.com/edgebuildlabs/channel-contract",
         "href": "https://github.com/edgebuildlabs/channel-contract"
+      },
+      {
+        "titulo": "mandate-contract",
+        "texto": "Quem pode dizer sim, e como esse sim chega a um agente que outro agente pediu: quais atos precisam da palavra do humano, o que cada agente pode fazer sozinho dentro de um perímetro escrito, e o que roda sem humano nenhum porque o pior caso está escrito e aceito. Oito regras, cada uma paga por um caso datado. Domínio público (CC0).",
+        "link": "github.com/edgebuildlabs/mandate-contract",
+        "href": "https://github.com/edgebuildlabs/mandate-contract"
       }
     ]
   },

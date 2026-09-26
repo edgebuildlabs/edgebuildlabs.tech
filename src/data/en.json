@@ -97,6 +97,12 @@
         "texto": "How you talk to an agent running on a machine you do not control, and how its delivery outlives the session: a repository used as a channel, with the contract inside it. Extracted from a channel that ran for six days with five agents. Public domain (CC0).",
         "link": "github.com/edgebuildlabs/channel-contract",
         "href": "https://github.com/edgebuildlabs/channel-contract"
+      },
+      {
+        "titulo": "mandate-contract",
+        "texto": "Who may say yes, and how that yes reaches an agent that another agent asked: which acts need the human's word, what each agent may do alone inside a written perimeter, and what runs with no human at all because its worst case is written and accepted. Eight rules, each paid for by a dated case. Public domain (CC0).",
+        "link": "github.com/edgebuildlabs/mandate-contract",
+        "href": "https://github.com/edgebuildlabs/mandate-contract"
       }
     ]
   },
